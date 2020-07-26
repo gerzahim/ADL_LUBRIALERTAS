@@ -1,0 +1,50 @@
+
+#main-logo{
+    background-image:url('../images/logorojo.png'); 
+	background-repeat:no-repeat;
+    width:170px;
+    height:70px;
+	float:left;
+	margin-left:20px;
+}
+
+#main-logo1{
+    background-image:url('../images/logorojo.png'); 
+	background-repeat:no-repeat;
+    width:170px;
+    height:70px;
+	float:left;
+	margin-left:30px;
+}
+
+#contenedor-degradado{
+    background-image:url('../images/degradacion_roja-aux.png'); 
+	background-repeat:no-repeat;
+    width:620px;
+	height:20px;
+    margin:29px 0px 0px 10px;
+	padding:0px;
+    float:left;
+}
+
+#nombre-aplicacion{
+    background-color:transparent;
+	color:#FFFFFF;
+    margin:1px 0px 0px 0px;
+    float:right;
+	font-size : 16px; 
+	font-family: Arial, sans-serif;	
+	font-weight:bold;
+	padding-right:20px;
+}
+
+#contenedor-cliente{
+    background-image:url('../images/banner_cliente.jpg'); 
+	background-repeat:no-repeat;
+    width:610px;
+	height:70px;
+    margin:5px 0px 0px 7px;
+	padding:0px;
+    float:left;
+}
+

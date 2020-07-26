@@ -1,0 +1,101 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo_web}</title>
+<!-- Aqui comienzan las etiquetas meta -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Language" content="es_VE"/>
+<!-- Aqui terminan las etiquetas meta -->
+<!-- Hojas de estilo-->
+<link rel="stylesheet" type="text/css" media="screen" href="./css/layout.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/menu.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/forms.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/tables.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/header.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/jquery-calendar.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/main-aplicacion.css"/>
+<!-- Fin de hojas de estilo-->
+<!-- Javascripts-->
+<script language="javascript" type="text/javascript" src="./jscripts/simpletreemenu.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery-1.2.6.pack.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.corner.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.selectboxes.pack.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery-calendar.pack.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.metadata.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jscripts.js"></script>
+<!--  Fin Javascripts-->
+</head>
+<body>
+	<!-- BEGIN: conexion_fallida -->
+	<div id="wait">{mensaje_conexion}</div>
+	<!-- END: conexion_fallida -->
+
+  &nbsp;
+  <div class="Contenedor" id="Main-externo">
+				<div id="login">
+				  <div align="right">|&nbsp;&nbsp; <a href="{pagina_principal}">Inicio</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="{pagina_principal}?op=cuenta">Mi Cuenta</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="{pagina_principal}?op=close">Cerrar Sesion</a>&nbsp;&nbsp;|</div>
+				</div>
+	</div>
+
+	<div class="Contenedor" id="Main-externo">
+    <div id="header" style="text-align:center">{FILE {TOP_HEADER}}</div>
+    <div class="Contenedor-con-sombra" id="Main-BackCuerpoRight" >
+       <div class="Contenedor-con-sombra" id="Main-BackCuerpoLeft"> 
+          <div class="Contenedor" id="Main-Cuerpo">
+             <div class="Contenedor-con-Bordes" id="Main-Identificador_usuario">
+	   				     <span class="Texto-Identificador" id="Main-Usuario"> Bienvenido, {nombre_usuario} </span>
+                  <span class="Texto-Identificador" id="Main-Fecha">{fecha_hoy}</span>
+              </div>
+             <div class="Contenedor" id="Main-breadcrumbs">
+                 <div id="Main-Traza"><div id="Main-Traza-aux"></div></div>
+				     <div class="EsquinasBread" id="EsquinaBreadDerecha"></div>
+					   </div>
+	        
+					<div class="Contenedor-Editable-Fondo" id="Vista">
+						<div class="Contenedor-Editable" id="Menu">
+					    	<table ALIGN=LEFT  border="0">
+					    	<tr>
+					       	<td rowspan=2 valign=top>
+					    	      <div class="Contenedor-Editable" id="Menu" VALIGN=TOP >
+							           	<div id="nav">{FILE {MENU}}</div>
+						           	<!-- <a href="" class="Contenedor-Texto-Menu"><span class="Text-menu" > Texto del Menu </span></a> -->
+                         </div>						                    
+                    </td> 
+                    
+                <td align=left valign=top>                
+        							  <p>
+        							  <!-- BEGIN: banner_animado -->
+        							  <!-- END: banner_animado -->  							 
+        							  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase=		"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="610" height="70" title="">
+        							  <param name="movie" value="./images/Banner.swf" />
+        							  <param name="quality" value="high" />
+        							  <embed src="./images/Banner.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="610" height="70"></embed>
+        							  </object>
+             				  	</p> 
+                </td>
+                </tr>
+                <tr>
+                  <td valign=top>
+                   <div class="Contenedor-Editable" id="Region-Editable">
+  							     <div id="content">            
+                      <p>{FILE {CONTENIDO}}</p>                               				  	  
+       				  	    </div>	
+       				     </div>    
+                  </td>      
+                </tr>			      
+  				     </table>
+  		   	</div>
+           	</div>
+           </div>
+           </div>
+           </div>
+          
+       
+     
+</body>
+</html>
+<!-- END: main -->

@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+.table_list {
+	background-color: transparent;
+	font-size: 12px;
+	border-bottom: 3px solid #cacaca;
+	border-right: 3px solid #cacaca;
+	border-top: 1px solid #cacaca;
+	border-left: 1px solid #cacaca;
+	margin: 2px;
+}
+
+.table_list .tbodyflow {
+	width: 99%;
+	height: 280px;
+	overflow: scroll;
+	overflow-x: hidden;
+	border: 1px solid #FF6600;
+	clip: rect('1px', '1px', '1px', '1px');
+}
+
+.table_list .title {
+	display: table-cell;
+	font-weight: bold;
+	background-color: #999999;
+	color: #FFFFFF;
+	padding: 3px 0px 3px 0px;
+	text-align: center;
+}
+
+th.title {
+	border: 1px solid #cacaca;
+	cursor: pointer;
+}
+
+table.table_list tbody tr.odd {
+	background-color: #E8E8E8;
+	height: 20px;
+}
+
+table.table_list tbody tr.odd:hover {
+	color: #e6e6fa;
+	background-color: #1B6DC3;
+	height: 20px;
+}
+
+table.table_list tbody tr.even:hover {
+	color: #e6e6fa;
+	background-color: #1B6DC3;
+	height: 20px;
+}
+
+table.table_list tbody tr {
+	background-color: #fff;
+	height: 20px;
+}
+
+.table_list tbody tr td {
+	border-right: 1px solid #fff;
+}
+
+.table_list tbody tr.even td {
+	border-right: 1px solid #ccc;
+}
+
+table.dotted {
+	border-width: 3px 3px 3px 3px;
+	border-spacing: 2px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+	border-collapse: separate;
+	background-color: white;
+}
+table.dotted th {
+	border-width: 0px 0px 0px 0px;
+	padding: 3px 3px 3px 3px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+table.dotted td {
+	border-width: 0px 0px 0px 0px;
+	padding: 3px 3px 3px 3px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}

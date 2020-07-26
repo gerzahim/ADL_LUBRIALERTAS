@@ -1,0 +1,138 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<div><h1>Crear Solicitud </h1></div>
+	<div id="message" class="message" >{mensaje}</div>
+	<br />
+	<!-- BEGIN: no_disponible -->
+	<p style="text-align:center; color:#000000;"><br/>
+		<u>NOTA</u>: Ha alcanzado su l&iacute;mite de muestras para el mes de <b>&quot;{MES_ACTUAL}&quot;</b>
+	</p>
+	<!-- END: no_disponible -->
+	
+	<!-- BEGIN: cantidad_muestra -->
+	<h4>Debe Seleccionar el numero de Muestras para esta Solicitud</h4>
+	<div id="formularios">
+		<form id="frm1" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden"  type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden"  type="hidden" name="accion" id="idaccion" value="crear_solicitud"/>
+			<fieldset>
+				<legend>Seleccionar Cantidad de Muestras</legend>
+						<table><tr><td><span class="requerido">*</span></td>
+						<td><select id="cantidad" name="cantidad" {campo_requerido}>
+						<option value="">Seleccione...</option>
+						<!-- BEGIN: cantidad_muestras -->
+						<option value="{numero}">{numero}</option>
+						<!-- END: cantidad_muestras -->
+					</select></td>
+					<td><input id="btnok" name="btncontinuar" type="submit" value="continuar" class="boton"/></td>					
+					</tr></table>
+			</fieldset>
+		</form>
+	</div>
+	<!-- BEGIN: leyenda_cantidad_muestra -->
+	<p style="text-align:center;"><br/>
+		<u>NOTA</u>: En el mes de <b>&quot;{MES_ACTUAL}&quot;</b> le queda un l&iacute;mite de muestras de <b>&quot;{LIMITE_MUESTRAS}&quot;</b>
+	</p>
+	<!-- END: leyenda_cantidad_muestra -->
+	<!-- END: cantidad_muestra -->
+	<!-- BEGIN: crear_solicitud -->
+	<div id="formularios">
+		<form id="frm1" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden"   type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input  style="border: hidden"  type="hidden" name="accion" id="idaccion" value="guardar_solicitud"/>
+			<input style="border: hidden"   type="hidden" name="cantidad" id="cantidad" value="{cantidad}"/>	
+			<fieldset>
+				<legend>Datos Solicitud:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr align="center"><td colspan="2" class="requerido" style="text-align:right;">(*)Campos Requeridos&nbsp;</td></tr>
+					<tr>
+						<td class="tag" width="300"><span class="requerido">*</span>Motivo del Analisis:</td>
+						<td>
+							<input type="hidden" id="motivoana" name="motivoana" value="1"/>&nbsp;<b>"Monitoreo"</b>
+							<!--
+							<select id="motivoana" name="motivoana" {campo_requerido}>
+								<option value="1">Monitoreo</option>
+							</select>
+							-->
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+				
+			<h3>Debe llenar todos los Campos por cada Muestra</h3>
+			<!-- BEGIN: form_muestra -->
+			<h4>Muestra {numero}</h4>
+			<fieldset>
+				<legend>Muestras por Equipo:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr>
+						<td width="150" class="tag"><span class="requerido">*</span> Tipo de Equipo:</td>
+						<td>
+							<select id="op_equipo_{numero}" name="op_equipo_{numero}"  {campo_requerido}>
+								<option value="">Seleccione un Equipo.....</option>
+								<!-- BEGIN: lista_equipos -->
+								<option value="{id_Equipo}" {seleccion}>{Codigo_Equipo} | {Nombre_Equipo} | {Tipo} </option>
+								<!-- END: lista_equipos -->
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> Lubricante y Tipo:</td>
+						<td>
+							<select id="producto_{numero}" name="producto_{numero}" {campo_requerido}>
+								<option value="">Seleccione  Producto.....</option>
+								<!-- BEGIN: lista_productos -->
+								<option value="{Codigo_Producto}" {seleccion}>{Nombre_Producto}</option>
+								<!-- END: lista_productos -->
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="tag">
+							<span class="requerido">*</span>&nbsp;
+							<input name="horakm_{numero}" type="radio" value="1" checked="checked" style="vertical-align:middle;"/>Horas&nbsp;&nbsp;&nbsp;
+							<input type="radio" value="2" name="horakm_{numero}" style="vertical-align:middle;" />Km
+						</td>
+						<td>
+<!--							<input  style="border: hidden"  id="txthorakm_{numero}" name="txthorakm_{numero}" size="10" maxlength="5" type="text" {numerico_requerido}/>(De uso del Lubricante) -->
+							<input  id="txthorakm_{numero}" name="txthorakm_{numero}" size="10" maxlength="5" type="text" {numerico_requerido}/>(De uso del Lubricante)
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+			<!-- END: form_muestra -->
+			<div class="botones">
+				<input  id="btnok" name="btnsubmit" value="Aceptar" type="submit" class="boton"/>&nbsp;&nbsp;
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>
+	</div>
+	<!-- END: crear_solicitud -->
+</div>
+<!-- BEGIN: confirmacion -->
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden"  type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden"  type="hidden" name="accion" id="idaccion" value="version_imprimir"/>
+			<input style="border: hidden"  type="hidden" name="id_solicitud" id="id_solicitud" value="{id_solicitud}"/>
+			<fieldset>
+				<legend>Confirmacion de Solicitud</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Su Solicitud ha sido satisfactoria</b>.
+					<br />
+					<br /><br />
+					&iquest; Desea Imprimir la Solicitud ?
+					<br />
+					<br />
+					<input  id="btnok" name="btnaceptar" value="Aceptar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+					<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='index.php'"/>
+					<br />
+					&nbsp;
+				</p>
+			</fieldset>
+		</form>			 
+	</div>
+	<!-- END: confirmacion -->
+<!-- END: contenido -->

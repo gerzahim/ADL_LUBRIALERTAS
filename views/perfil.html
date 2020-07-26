@@ -1,0 +1,194 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<h1>Perfiles</h1>
+	<div id="message" class="message" >{mensaje}</div>
+	<!-- BEGIN: listado -->
+	<div id="enlaces_accion">
+		<!-- BEGIN: agregar -->
+		<span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=add">Ingresar Perfil</a> ]</span>
+		<!-- END: agregar -->
+	</div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col"  width="20">&nbsp;</th>
+				<!-- BEGIN: eliminar_01 -->
+				<th class="title header" scope="col"  width="20">&nbsp;</th>
+				<!-- END: eliminar_01 -->
+				<th class="title header" scope="col" width="200">Perfil</th>
+				<th class="title header" scope="col">Modulos Asignados</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}">
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=mod&amp;id={id_Perfil}" title="Ver / Modificar"><img src="./images/lapiz.gif" border="0"/></a>
+				</td>
+				<!-- BEGIN: eliminar_02 -->
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=del&amp;id={id_Perfil}" title="Eliminar"><img src="./images/delete.png" border="0"/></a>
+				</td>
+				<!-- END: eliminar_02 -->
+				<td>&nbsp;{Nombre_Perfil}</td>
+				<td align="center" style="padding-left:10px; padding-right:10px;"><br />{Modulos_Acceso}<br />&nbsp;</td>
+			</tr>
+			<!-- END: lista -->
+		</tbody>
+		<caption>Listado de Perfiles</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!-- END: listado -->
+	<!-- BEGIN: formulario -->
+	<br />
+	<div id="formularios">
+		<form id="frm1" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="{tipo_accion}"/>
+			<!-- BEGIN: identificador -->
+			<input style="border: hidden" type="hidden" name="referencia" id="idreferencia" value="{id_Perfil}"/>
+			<!-- END: identificador -->
+			<fieldset>
+				<legend>Formulario de Perfiles:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2" class="requerido" style="text-align:right;">(*)Campos Requeridos&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td width="200" class="tag"><span class="requerido">*</span> Nombre del Perfil:</td>
+						<td><input id="txtname" name="txtname" size="25" maxlength="25" type="text" value="{Nombre_Perfil}"/></td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td colspan="2">
+							<table align="center" border="0" width="80%">
+								<tr align="center">
+									<td width="20">Acceso</td>
+									<td width="150">Modulos</td>
+									<td width="20">Agregar</td>
+									<td width="20">Modificar</td>
+									<td width="20">Eliminar</td>
+								</tr>
+								<tr><td colspan="5">&nbsp;</td></tr>
+								<!-- BEGIN: lista -->
+								<tr>
+									<td align="center">
+										<input name="chk[]" id="mod_{id_Modulos}" value="{id_Modulos}" type="checkbox" {script_activar} {check_box}/>
+									</td>
+									<td>{Nombre_Modulos}</td>
+									<!-- BEGIN: sin_casillas -->
+									<td colspan="3">&nbsp;</td>
+									<!-- END: sin_casillas -->
+									<!-- BEGIN: casillas -->
+									<td align="center">
+										<input name="add_{id_Modulos}" value="1" type="checkbox" {check_box_add} onClick="act_access('{id_Modulos}');"/>
+									</td>
+									<td align="center">
+										<input name="upd_{id_Modulos}" value="1" type="checkbox" {check_box_mod} onClick="act_access('{id_Modulos}');"/>
+									</td>
+									<td align="center">
+										<input name="del_{id_Modulos}" value="1" type="checkbox" {check_box_del} onClick="act_access('{id_Modulos}');"/>
+									</td>
+									<!-- END: casillas -->
+								</tr>
+								<!-- BEGIN: nivel1 -->
+								<tr>
+									<td align="center">
+										<input name="chk[]" id="mod_{padre_modulo}_{num}" value="{id_Modulos}" type="checkbox" {no_habilitado_n1} {script_activar} {check_box_n1}/>
+									</td>
+									<td style="padding-left:10px;"> - {Nombre_Modulos}</td>
+									<!-- BEGIN: sin_casillas -->
+									<td colspan="3">&nbsp;</td>
+									<!-- END: sin_casillas -->
+									<!-- BEGIN: casillas -->
+									<td align="center">
+										<input name="add_{id_Modulos}" id="add_{padre_modulo}_{num}" value="1" type="checkbox" {no_habilitado_n1} {check_box_add_n1} onClick="act_access('{padre_modulo}_{num}');"/>
+									</td>
+									<td align="center">
+										<input name="upd_{id_Modulos}" id="upd_{padre_modulo}_{num}" value="1" type="checkbox" {no_habilitado_n1} {check_box_mod_n1} onClick="act_access('{padre_modulo}_{num}');"/>
+									</td>
+									<td align="center">
+										<input name="del_{id_Modulos}" id="del_{padre_modulo}_{num}" value="1" type="checkbox" {no_habilitado_n1}  {check_box_del_n1} onClick="act_access('{padre_modulo}_{num}');"/>
+									</td>
+									<!-- END: casillas -->
+								</tr>
+								<!-- BEGIN: nivel2-->
+								<tr>
+									<td align="center">
+										<input name="chk[]" id="mod_{padre_modulo}_{num}" value="{id_Modulos}" type="checkbox" {no_habilitado_n2} {check_box_n2}/>
+									</td>
+									<td style="padding-left:20px;"> - {Nombre_Modulos}</td>
+									<!-- BEGIN: sin_casillas -->
+									<td colspan="3">&nbsp;</td>
+									<!-- END: sin_casillas -->
+									<!-- BEGIN: casillas -->
+									<td align="center">
+										<input name="add_{id_Modulos}" id="add_{padre_modulo}_{num}" value="1" type="checkbox" {no_habilitado_n2} {check_box_add_n2} onClick="act_access('{padre_modulo}_{num}');"/>
+									</td>
+									<td align="center">
+										<input name="upd_{id_Modulos}" id="upd_{padre_modulo}_{num}" value="1" type="checkbox" {no_habilitado_n2} {check_box_mod_n2} onClick="act_access('{padre_modulo}_{num}');"/>
+									</td>
+									<td align="center">
+										<input name="del_{id_Modulos}" id="del_{padre_modulo}_{num}" value="1" type="checkbox" {no_habilitado_n2} {check_box_del_n2} onClick="act_access('{padre_modulo}_{num}');"/>
+									</td>
+									<!-- END: casillas -->
+								</tr>
+								<!-- END: nivel2 -->
+								<!-- END: nivel1 -->
+								<!-- END: lista -->
+							</table>
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td  align="center"colspan="2">
+							<!-- BEGIN: boton -->
+							<input  id="btnok" name="btnentrar" value="{tag_boton}" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+							<!-- END: boton -->
+							<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+		</form>			 
+	</div>
+	<!-- END: formulario -->
+	<!-- BEGIN: eliminacion -->
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="del"/>
+			<input style="border: hidden" type="hidden" name="referencia" id="idreferencia" value="{id_registro}"/>
+			<fieldset>
+				<legend>Eliminar Perfil</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Advertencia</b>: Esta por eliminar la informaci&oacute;n de un perfil, debe tener cuidado...
+					<br /><br /><br />
+					&iquest; Esta seguro de eliminar el perfil seleccionado ?
+					<br /><br />
+					<input  id="btnok" name="btneliminar" value="Eliminar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+					<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+					<br />
+					&nbsp;
+				</p>
+			</fieldset>
+		</form>			 
+	</div>
+	<!-- END: eliminacion -->
+	<!-- BEGIN: vinculacion -->
+	<p style="text-align:center;">
+		<br />
+		<b>Advertencia</b>: El perfil ha eliminar esta asociado a uno o varios usuarios!!!<br />
+		Por favor, primero elimine o cambie los usuarios asociados a este perfil <br />
+		para proceder a la eliminacion....
+		<br /><br /><br />
+		<input  id="btnok" name="btncancelar" value="Regresar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+		<br />
+		&nbsp;
+	</p>
+	<!-- END: vinculacion -->
+</div>
+<!-- END: contenido -->

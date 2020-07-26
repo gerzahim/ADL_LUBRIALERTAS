@@ -1,0 +1,484 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<h1>Reportes</h1>
+	<div id="message" class="message" >{mensaje}</div> 
+	<br /> 
+	<!-- BEGIN: seleccion -->
+	<div id="formularios">
+		<form id="frm1" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="ver"/>
+			<fieldset>
+				<legend>Tipos de Reportes</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td colspan="2" align="center">
+							A continuaci&oacute;n se presenta un listado de los reportes disponible en el sistema.<br/>
+							Por favor seleccione una opci&oacute;n para ver la informaci&oacute;n detallada.
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td class="tag" width="210">Reportes:</td>
+						<td>
+							<select id="tipo" name="tipo" {campo_requerido}>
+								<option value="">Seleccione un reporte.....</option>
+								<option value="01">Cantidad de Muestras por Equipo</option>
+								<!-- BEGIN: lista_seleccion -->
+								<option value="02">Cantidad de Muestras por Cliente</option>
+								<option value="03">Frecuencia de Tiempo de Muestras por Equipo</option>
+								<option value="04">Solicitudes Realizadas por Cliente</option>
+								<!-- END: lista_seleccion -->
+								<option value="05">Comportamiento en el Tiempo de los Equipos</option>
+							</select>
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  id="btnok" name="btnentrar" value="Ver Reporte" type="submit" class="boton"/>
+			</div>
+		</form>
+	</div>
+	<!-- END: seleccion -->
+	<!-- BEGIN: reporte_01 -->
+	<div id="enlaces_accion">
+		<span>
+		<!-- BEGIN: enlace_exportar -->
+		[ <a class="enlaces" href="./export/reportes.php?marca={aleatorio}&amp;reporte={tipo_reporte}&amp;{complemento}" target="_blank">Exportar</a> ]
+		<!-- END: enlace_exportar -->
+		</span>
+	</div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="90">C&oacute;digo Equipo</th>
+				<th class="title header" scope="col" width="200">Nombre</th>
+				<th class="title header" scope="col" width="100">Tipo</th>
+				<th class="title header" scope="col" width="100">Marca</th>
+				<th class="title header" scope="col" width="200">Cliente</th>
+				<th class="title header" scope="col">Cantidad Muestras</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}">
+				<td align="center">{Codigo_Equipo}</td>
+				<td>&nbsp;{Nombre_Equipo}</td>
+				<td>&nbsp;{Tipo}</td>
+				<td align="center">{Marca}</td>
+				<td align="center">{Nombre_Cliente}</td>
+				<td align="center">{cantidad}</td>
+			</tr>
+			<!-- END: lista -->
+			<!-- BEGIN: no_lista -->
+			<tr class="even">
+				<td align="center" colspan="6" class="odden"><br />{sin_listado}<br />&nbsp;</td>
+			</tr>
+			<!-- END: no_lista -->
+		</tbody>
+		<caption>Reporte Cantidad de Muestras por Equipo</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!--
+	<div class="botones">
+		<input  id="btnok" name="btnregresar" value="Regresar" type="button" class="boton" onClick="location='{ruta_regreso}'"/>
+	</div> -->
+	<!-- END: reporte_01 -->
+	<!-- BEGIN: reporte_02 -->
+	<div id="enlaces_accion">
+		<span>
+		<!-- BEGIN: enlace_exportar -->
+		[ <a class="enlaces" href="./export/reportes.php?marca={aleatorio}&amp;reporte={tipo_reporte}&amp;{complemento}" target="_blank">Exportar</a> ]
+		<!-- END: enlace_exportar -->
+		</span>
+	</div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="250">Cliente</th>
+				<th class="title header" scope="col" width="150">Rif</th>
+				<th class="title header" scope="col" width="200">Email</th>
+				<th class="title header" scope="col">Cantidad Muestras</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}">
+				<td>&nbsp;{Nombre_Cliente}</td>
+				<td align="center">{Rif}</td>
+				<td align="center">{Email}</td>
+				<td align="center">{cantidad}</td>
+			</tr>
+			<!-- END: lista -->
+			<!-- BEGIN: no_lista -->
+			<tr class="even">
+				<td align="center" colspan="6" class="odden"><br />{sin_listado}<br />&nbsp;</td>
+			</tr>
+			<!-- END: no_lista -->
+		</tbody>
+		<caption>Reporte Cantidad de Muestras por Cliente</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!--
+	<div class="botones">
+		<input  id="btnok" name="btnregresar" value="Regresar" type="button" class="boton" onClick="location='{ruta_regreso}'"/>
+	</div> -->
+	<!-- END: reporte_02 -->
+	<!-- BEGIN: reporte_03 -->
+	<div id="enlaces_accion">
+		<span>
+		<!-- BEGIN: enlace_exportar -->
+		[ <a class="enlaces" href="./export/reportes.php?marca={aleatorio}&amp;reporte={tipo_reporte}&amp;{complemento}" target="_blank">Exportar</a> ]
+		<!-- END: enlace_exportar -->
+		</span>
+	</div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="100">C&oacute;digo Equipo</th>
+				<th class="title header" scope="col" width="150">Tipo</th>
+				<th class="title header" scope="col" width="150">Marca</th>
+				<th class="title header" scope="col" width="250">Cliente</th>
+				<th class="title header" scope="col" width="60">Cantidad Muestras</th>
+				<th class="title header" scope="col">Frecuencia (DIAS)</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}">
+				<td align="center">{Codigo_Equipo}</td>
+				<td>&nbsp;{Tipo}</td>
+				<td align="center">{Marca}</td>
+				<td align="center">{Nombre_Cliente}</td>
+				<td align="center">{cantidad}</td>
+				<td align="center">{frecuencia}</td>
+			</tr>
+			<!-- END: lista -->
+			<!-- BEGIN: no_lista -->
+			<tr class="even">
+				<td align="center" colspan="6" class="odden"><br />{sin_listado}<br />&nbsp;</td>
+			</tr>
+			<!-- END: no_lista -->
+		</tbody>
+		<caption>Reporte Frecuencia de Tiempo de Muestras por Equipo</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!--
+	<div class="botones">
+		<input  id="btnok" name="btnregresar" value="Regresar" type="button" class="boton" onClick="location='{ruta_regreso}'"/>
+	</div> -->
+	<!-- END: reporte_03 -->
+	<!-- BEGIN: reporte_04 -->
+	<div id="formularios">
+		<br />
+		<form id="frm1" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="ver"/>
+			<input style="border: hidden" type="hidden" name="tipo" id="idtipo" value="04"/>
+			<fieldset>
+				<legend>B&uacute;squeda de Cliente en Particular</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2" class="requerido" style="text-align:right;">(*)Campos Requeridos&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="220"><span class="requerido">*</span> Clientes :</td>
+						<td>
+							<select id="cliente" name="cliente" {campo_requerido}>
+								<option value="">Seleccione un cliente.....</option>
+								<!-- BEGIN: lista_clientes -->
+								<option value="{id_Cliente}" {seleccion}>{Nombre_Cliente}</option>
+								<!-- END: lista_clientes -->
+							</select>
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  id="btnok" name="btnentrar" value="Buscar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<input  id="btregresar" name="btregresar" value="Regresar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>			 
+	</div>
+	<!-- BEGIN: tabla_reporte -->
+	<div id="enlaces_accion">
+		<span>
+		<!-- BEGIN: enlace_exportar -->
+		[ <a class="enlaces" href="./export/reportes.php?marca={aleatorio}&amp;reporte={tipo_reporte}&amp;cl={cliente}" target="_blank">Exportar</a> ]
+		<!-- END: enlace_exportar -->
+		</span>
+	</div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="150">C&oacute;digo</th>
+				<th class="title header" scope="col" width="150">Fecha</th>
+				<th class="title header" scope="col" width="150">Motivo An&aacute;lisis</th>
+				<th class="title header" scope="col">Cantidad Muestras</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}">
+				<td style="font-weight:bold; text-align:center;">&nbsp;{Cod_Solicitud}</td>
+				<td align="center">{Fecha}</td>
+				<td align="center">{Motivo_Analisis}</td>
+				<td align="center">{Cantidad_Muestras}</td>
+			</tr>
+			<!-- END: lista -->
+			<!-- BEGIN: no_lista -->
+			<tr class="even">
+				<td align="center" colspan="6" class="requerido"><br />{sin_listado}<br />&nbsp;</td>
+			</tr>
+			<!-- END: no_lista -->
+		</tbody>
+		<caption>Reporte Solicitudes Realizadas por Cliente</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!-- END: tabla_reporte -->
+	<!-- END: reporte_04 -->
+	
+	<!-- BEGIN: reporte_05 -->
+	<!-- BEGIN: seleccion_cliente -->
+	<div id="formularios">
+		<br />
+		<form id="frm1" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="ver"/>
+			<input style="border: hidden" type="hidden" name="tipo" id="idtipo" value="05"/>
+			<fieldset>
+				<legend>B&uacute;squeda de Cliente en Particular</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2" class="requerido" style="text-align:right;">(*)Campos Requeridos&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="220"><span class="requerido">*</span> Clientes :</td>
+						<td>
+							<select id="cliente" name="cliente" {campo_requerido}>
+								<option value="">Todos los clientes.....</option>
+								<!-- BEGIN: lista_clientes -->
+								<option value="{id_Cliente}" {seleccion}>{Nombre_Cliente}</option>
+								<!-- END: lista_clientes -->
+							</select>
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  id="btnok" name="btnentrar" value="Buscar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<input  id="btregresar" name="btregresar" value="Regresar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>
+	</div>
+	<!-- END: seleccion_cliente -->
+	<!-- BEGIN: tabla_reporte -->
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="20">&nbsp;</th>
+				<th class="title header" scope="col" width="150">C&oacute;digo Equipo</th>
+				<th class="title header" scope="col" width="150">Tipo</th>
+				<th class="title header" scope="col" width="150">Marca</th>
+				<th class="title header" scope="col" width="200">Cliente</th>
+				<th class="title header" scope="col">Cantidad Muestras</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}" style="height:25px;">
+				<td align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=grafico&amp;id={id_Equipo}" title="Ver grafico"><img src="./images/grafico.png" border="0" alt="Ver Grafico"/></a>
+				</td>
+				<td align="center">{Codigo_Equipo}</td>
+				<td>&nbsp;{Tipo}</td>
+				<td align="center">{Marca}</td>
+				<td align="center">{Nombre_Cliente}</td>
+				<td align="center">{cantidad}</td>
+			</tr>
+			<!-- END: lista -->
+			<!-- BEGIN: no_lista -->
+			<tr class="even">
+				<td align="center" colspan="6" class="requerido"><br />{sin_listado}<br />&nbsp;</td>
+			</tr>
+			<!-- END: no_lista -->
+		</tbody>
+		<caption>Reporte Comportamiento en el Tiempo de los Equipos</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!-- END: tabla_reporte -->
+	<!-- END: reporte_05 -->
+	<!-- BEGIN: grafico_comportamiento -->
+	<div id="enlaces_accion">
+		<!-- BEGIN: enlace_exportar -->
+		<span>
+		[ 
+			<a class="enlaces" href="./export/graph_page.php?marca={aleatorio}&amp;reporte={tipo_reporte}&amp;e={id_equipo}{parametro}" target="_blank">Version Imprimir</a> 
+		]
+		</span>
+		<!-- END: enlace_exportar -->
+		<span>
+		[ <a class="enlaces" href="#" onClick="location='{ruta_regreso}'">Regresar</a> ]
+		</span>
+	</div>
+	<form name="formParam" action="{pagina_principal}" method="get">
+		<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+		<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="{accion_sistema}"/>
+		<input style="border: hidden" type="hidden" name="id" value="{equipo}"/>
+		<table summary="Sumario de la tabla" style="width:100%;" class="table_list" cellpadding="1" cellspacing="1">
+			<tbody>
+				  <tr>
+    					<td colspan="3" align="center">Seleccione el par&aacute;metro el cual quiere observar el gr&aacute;fico.</td>
+  				  </tr>
+  				  <tr>
+					<td style="width:30%;">&nbsp;</td>
+					<td align="center" style="width:40%;">
+						<select name="param">
+							<option value="">Seleccione un par&aacute;metro...</option>
+							<option value="al" {seleccionado_al}>Aluminio (Al)</option>
+							<option value="cr" {seleccionado_cr}>Cromo (Cr)</option>
+							<option value="cu" {seleccionado_cu}>Cobre (Cu)</option>
+							<option value="fe" {seleccionado_fe}>Hierro (Fe)</option>
+							<option value="pb" {seleccionado_pb}>Plomo (Pb)</option>
+							<option value="sn" {seleccionado_sn}>Esta&ntilde;o (Sn)</option>
+							<option value="si" {seleccionado_si}>Silicio (Si)</option>
+							<option value="b" {seleccionado_b}>Boro (B)</option>
+							<!-- BEGIN: select_aditivos -->
+							<option value="na" {seleccionado_na}>Sodio (Na)</option>
+							<option value="mg" {seleccionado_mg}>Magnesio (Mg)</option>
+							<option value="ca" {seleccionado_ca}>Calcio (ca)</option>
+							<option value="zn" {seleccionado_zn}>Zinc (Zn)</option>
+							<option value="p" {seleccionado_p}>Fosforo (p)</option>
+							<option value="mo" {seleccionado_mo}>Moligdeno (Mo)</option>
+							<!-- END: select_aditivos -->
+							<option value="visc40" {seleccionado_visc40}>Visc 40 &deg;C (visc40)</option>
+							<option value="visc100" {seleccionado_visc100}>Visc 100 &deg;C (visc100)</option>
+							<option value="water" {seleccionado_water}>Agua Karl Fisher(water)</option>
+							<option value="ho" {seleccionado_ho}>Hollin (Ho)</option>
+							<option value="nb" {seleccionado_nb}>Num. Basico (Nb)</option>							
+							<option value="ac" {seleccionado_ac}>Acidez (Ac)</option>
+						</select>&nbsp;&nbsp;
+					</td>
+					<td style="width:30%;">
+						<input id="btnok" name="btnentrar" value="Buscar" type="submit" class="boton"/>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<!-- BEGIN: imagen_grafico -->
+	<br/><br/>
+	<table id="tbgrafico" align="center" style="width:100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<tbody>
+		  <caption>Reporte Comportamiento en el Tiempo del Equipo <b>{Tipo} - {Marca}</b></caption>
+			<tr><td><img src="{imagen}"/></td></tr>
+		</tbody>
+	</table>
+	<!-- END: imagen_grafico -->
+	<br/><br/>
+	<table id="tblista" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		
+		<caption><b>Metales de Desgaste y Contaminantes</b></caption>
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="100">Fecha Muestra</th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=al">Al</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=cr">Cr</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=cu">Cu</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=fe">Fe</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=pb">Pb</a></th>			<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=sn">Sn</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=si">Si</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=b">B</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=na">Na</a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}" align="center">
+				<td>{fecha}</td>
+				<td>{AL}</td>
+				<td>{CR}</td>
+				<td>{CU}</td>
+				<td>{FE}</td>
+				<td>{PB}</td>
+				<td>{SN}</td>
+				<td>{SI}</td>
+				<td>{B}</td>
+				<td>{NA}</td>
+			</tr>
+			<!-- END: lista -->
+		</tbody>	
+	</table>
+	<!-- BEGIN: param_aditivos -->
+	<table id="tblista" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+	
+		<caption><b>Aditivaci&oacute;n</b></caption>
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="100">Fecha Muestra</th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=mg">Mg</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=ca">Ca</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=zn">Zn</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=p">P</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=mo">Mo</a></th>				
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN: listab -->
+			<tr class="{estilo_fila}" align="center">
+				<td>{fecha}</td>
+				<td>{MG}</td>
+				<td>{CA}</td>
+				<td>{ZN}</td>
+				<td>{P}</td>
+				<td>{MO}</td>			
+			</tr><!-- END: listab -->
+		</tbody>	
+	</table>
+	<!-- END: param_aditivos -->
+	<br>		
+	<table id="tblista" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<caption><b>Propiedades F&iacute;sico-Qu&iacute;micas</b> </caption>
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="100">Fecha Muestra</th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=visc40">Visc 40 &deg;C </a> </th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=visc100">Visc 100 &deg;C </a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=water">Agua Karl Fisher</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=ho">Holin</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=nb">Num Basico</a></th>
+				<th class="title header" scope="col"><a style="text-aling:center; color:#FFFFFF" href="{pagina_principal}?op={opcion_sistema}&amp;accion={accion_sistema}&amp;id={equipo}&amp;param=ac">Acidez</a></th>				
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN: listaa -->
+			<tr class="{estilo_fila}" align="center">
+				<td>{fecha}</td>
+				<td>{VISC40}</td>
+				<td>{VISC100}</td>
+				<td>{WATER}</td>
+				<td>{HO}</td>
+				<td>{NB}</td>
+				<td>{AC}</td>				
+			</tr>
+			<!-- END: listaa -->
+		</tbody>	
+	</table>	
+	<br/><br/>&nbsp;
+<!-- END: grafico_comportamiento -->
+</div>
+<!-- END: contenido -->

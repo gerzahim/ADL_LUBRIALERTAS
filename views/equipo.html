@@ -1,0 +1,235 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<h1>Equipos</h1>
+	<div id="message" class="message" >{mensaje}</div>
+	<br />
+	<!-- BEGIN: listado -->
+	<div id="enlaces_accion">
+		<span>[ <a class="enlaces" href="./export/listado.php?{ruta_exportacion}" target="_blank">Exportar Listado</a> ]</span>
+		<!-- BEGIN: agregar -->
+		<span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=add">Ingresar Equipo</a> ]</span>
+		<!-- END: agregar -->
+		<span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=buscar">Buscar Equipo</a> ]</span>
+	</div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col"  width="20">&nbsp;</th>
+				<!-- BEGIN: eliminar_01 -->
+				<th class="title header" scope="col"  width="20">&nbsp;</th>
+				<!-- END: eliminar_01 -->
+				<th class="title header" scope="col" width="110">C&oacute;digo Equipo</th>
+				<th class="title header" scope="col" width="130">Nombre</th>
+				<th class="title header" scope="col" width="100">Tipo</th>
+				<th class="title header" scope="col" width="100">Marca</th>
+				<!-- BEGIN: ultimo_titulo_01 -->
+				<th class="title header" scope="col">Cliente</th>
+				<!-- END: ultimo_titulo_01 -->
+				<!-- BEGIN: ultimo_titulo_02 -->
+				<th class="title header" scope="col">Capacidad (litros)</th>
+				<!-- END: ultimo_titulo_02 -->
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}">
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=mod&amp;id={id_Equipo}" title="Ver / Modificar"><img src="./images/lapiz.gif" border="0"/></a>
+				</td>
+				<!-- BEGIN: eliminar_02 -->
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=del&amp;id={id_Equipo}" title="Eliminar"><img src="./images/delete.png" border="0"/></a>
+				</td>
+				<!-- END: eliminar_02 -->
+				<td align="center">{Codigo_Equipo}</td>
+				<td>{Nombre_Equipo}</td>
+				<td>&nbsp;{Tipo}</td>
+				<td align="center">{Marca}</td>
+				<!-- BEGIN: ultima_columna_01 -->
+				<td align="center">{Nombre_Cliente}</td>
+				<!-- END: ultima_columna_01 -->
+				<!-- BEGIN: ultima_columna_02 -->
+				<td align="center">{Capacidad_Sistema}</td>
+				<!-- END: ultima_columna_02 -->
+			</tr>
+			<!-- END: lista -->
+			<!-- BEGIN: no_lista -->
+			<tr class="even">
+				<td align="center" colspan="7" class="odden"><br />{sin_listado}<br />&nbsp;</td>
+			</tr>
+			<!-- END: no_lista -->
+		</tbody>
+		<caption>Listado de Equipos</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!-- END: listado -->
+	<!-- BEGIN: busqueda -->
+	<div id="formularios">
+		<br />
+		<form id="frm1" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<fieldset>
+				<legend>Busqueda de Equipos</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="220">Por C&oacute;digo :</td>
+						<td><input id="codigo" name="codigo" size="30" maxlength="20" type="text" {codigo_campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag">Por Nombre :</td>
+						<td><input id="nombre" name="nombre" size="30" maxlength="30" type="text" /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="200">Por Tipo :</td>
+						<td><input id="tipo" name="tipo" size="30" maxlength="30" type="text" /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag">Por Marca :</td>
+						<td><input id="marca" name="marca" size="30" maxlength="30" type="text" /></td>
+					</tr>
+					<!--
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag">Por Modelo :</td>
+						<td><input id="modelo" name="modelo" size="30" maxlength="30" type="text" /></td>
+					</tr>
+					-->
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag">Por N&uacute;mero de Planta :</td>
+						<td><input id="numero" name="numero" size="30" maxlength="8" type="text" {alfanumerico_requerido} /></td>
+					</tr>
+					<!-- BEGIN: listado_clientes -->
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="230"> Cliente Asignado :</td>
+						<td>
+							<select id="cliente" name="cliente">
+								<option value="">...................................</option>
+								<!-- BEGIN: lista -->
+								<option value="{id_Cliente}">{Nombre_Cliente}</option>
+								<!-- END: lista -->
+							</select>
+						</td>
+					</tr>
+					<!-- END: listado_clientes -->
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  id="btnok" name="btnentrar" value="Buscar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>
+	</div>
+	<!-- END: busqueda -->
+	<!-- BEGIN: eliminacion -->
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="del"/>
+			<input style="border: hidden" type="hidden" name="referencia" id="idreferencia" value="{id_registro}"/>
+			<fieldset>
+				<legend>Eliminar Equipo</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Advertencia</b>: Esta por eliminar la informaci&oacute;n de un equipo, debe tener cuidado...
+					<br /><br /><br />
+					&iquest; Esta seguro de eliminar el equipo seleccionado ?
+					<br /><br />
+					<input  id="btnok" name="btneliminar" value="Eliminar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+					<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+					<br />
+					&nbsp;
+				</p>
+			</fieldset>
+		</form>
+	</div>
+	<!-- END: eliminacion -->
+	<!-- BEGIN: formulario -->
+	<div id="formularios">
+		<form name="frm1" id="frm1" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="{tipo_accion}"/>
+			<!-- BEGIN: identificador -->
+			<input style="border: hidden" type="hidden" name="referencia" id="idreferencia" value="{id_Equipo}"/>
+			<!-- END: identificador -->
+			<fieldset>
+				<legend>Formulario de Datos del Equipo:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2" class="requerido" style="text-align:right;">(*)Campos Requeridos&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> C&oacute;digo de Equipo:</td>
+						<td><input id="txt_codigo" name="txt_codigo" size="30" maxlength="12" type="text" value="{Codigo_Equipo}" {codigo_campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="230"><span class="requerido">*</span> Tipo de Equipo:</td>
+						<td><input id="txt_tipo" name="txt_tipo" size="30" maxlength="50" type="text" value="{Tipo}" {campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> Marca de Equipo:</td>
+						<td><input id="txt_marca" name="txt_marca" size="30" maxlength="50" type="text" value="{Marca}" {campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> Modelo de Equipo:</td>
+						<td><input id="txt_modelo" name="txt_modelo" size="30" maxlength="50" type="text" value="{Modelo}" {campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"> N&uacute;mero de Planta:</td>
+						<td><input id="txt_numero" name="txt_numero" size="30" maxlength="20" type="text" value="{Numero_Planta}" {alfanumerico_requerido} /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> Capacidad del Equipo (litros):</td>
+						<td><input id="txt_capacidad" name="txt_capacidad" size="20" maxlength="10" type="text" value="{Capacidad_Sistema}" {numerico_campo_requerido} /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> Nombre del Equipo:</td>
+						<td><input id="txt_nombre" name="txt_nombre" size="30" maxlength="30" type="text" value="{Nombre_Equipo}" {campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" valign="top"><span class="requerido">*</span> Descripci&oacute;n:</td>
+						<td><textarea id="area_descrip" name="area_descrip" cols="30" rows="5" {campo_requerido}>{Descripcion}</textarea></td>
+					</tr>
+					<!-- BEGIN: cliente -->
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="230"> Cliente Asignado:</td>
+						<td>
+							<select id="op_cliente" name="op_cliente" {permiso} >
+								<option value="">Sin Cliente.....</option>
+								<!-- BEGIN: lista -->
+								<option value="{id_Cliente}" {seleccion}>{Nombre_Cliente}</option>
+								<!-- END: lista -->
+							</select>
+						</td>
+					</tr>
+					<!-- END: cliente -->
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<!-- BEGIN: boton -->
+				<input  id="btnok" name="btnentrar" value="{tag_boton}" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<!-- END: boton -->
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>
+	</div>
+	<!-- END: formulario -->
+</div>
+<!-- END: contenido -->

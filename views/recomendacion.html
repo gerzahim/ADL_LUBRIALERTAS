@@ -1,0 +1,247 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<div id="message" class="message" >{mensaje}</div>
+	<!-- BEGIN: tabla_muestra -->
+	<h1>Lista de Muestras sin recomendar</h1>
+	<br />
+	<div class="enlace_accion"><span>Lista de Muestras </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th width="100" class="title header" scope="col">C&oacute;digo Muestra</th>
+				<th width="100" class="title header" scope="col">C&oacute;digo Equipo</div></th>
+				<th width="200" class="title header" scope="col">Nombre Equipo</div></th>
+				<th width="120" class="title header" scope="col">Tipo</th>
+				<th width="120" class="title header" scope="col">Marca</th>
+				<th width="100" class="title header" scope="col">Modelo</th>
+				<th class="title header" scope="col">Recomendar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN: lista_muestra -->
+			<tr class="{estilo_fila}">
+				<td scope="row"><div align="center">{Cod_Muestra}</div></td>
+				<td><div align="center">{Codigo_Equipo}</div></td>
+				<td><div align="center">{Nombre_Equipo}</div></td>
+				<td><div align="center">{Tipo}</div></td>
+				<td><div align="center">{Marca}</div></td>
+				<td><div align="center">{Modelo}</div></td>
+				<td align="center">
+					<a class="enlace_porcentaje" href="{pagina_principal}?op={opcion_sistema}&amp;accion=recomendar&amp;id={id_Muestra}&amp;id_sol={id_Solicitud}">[ ir ]</a>
+				</td>
+			</tr>
+			<!-- END: lista_muestra -->
+		</tbody>
+	</table><br/>
+	<div class="paginas">{paginacion}</div>
+	<!-- END: tabla_muestra -->
+  
+	<!-- BEGIN: tabla_muestra_recomendar -->
+	<h1>Propiedades de la muestra a recomedar</h1>
+	<br />
+	<div id="enlaces_accion">
+		<span><a class="enlaces" href="javascript:print();">| IMPRIMIR |</a></span>
+	</div>
+	<div class="enlace_accion"><span>Equipo</span></div>
+	<table width="100%" cellpadding="1" cellspacing="1" class="table_list" id="tb1" summary="Datos del Equipo" style="color:#444444;">
+		<tr class="{estilo_fila}">
+			<td width="25%"  class="title header" scope="col"><div align="left"> C&oacute;digo Muestra </div></td>
+			<td width="15%" ><div align="left">{Cod_Muestra}</div></td>
+			<td  class="title header" scope="col"><div align="center">Descripci&oacute;n del Equipo</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">C&oacute;digo Equipo</div></td>
+			<td><div align="left">{Codigo_Equipo}</div></td>
+			<td rowspan="9" valign="top">{Descripcion}</td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Nombre Equipo</div></td>
+			<td><div align="left">{Nombre_Equipo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Marca</div></td>
+			<td><div align="left">{Marca}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Tipo</div></td>
+			<td><div align="left">{Tipo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Modelo</div></td>
+			<td><div align="left">{Modelo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Capacidad Sistema</div></td>
+			<td><div align="left">{Capacidad_Sistema}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Lubricante y Tipo</div></td>
+			<td><div align="left">{Producto_Grado}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Hora</div></td>
+			<td><div align="left">{hora}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">km</div></td>
+			<td><div align="left">{km}</div></td>
+		</tr>
+	</table><br/>
+	<div class="enlace_accion"><span>Contenido de Metales </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th  class="title header" scope="col"><div align="center">Al</div></th>
+				<th  class="title header" scope="col"><div align="center">Cr</div></th>
+				<th  class="title header" scope="col"><div align="center">Cu</div></th>
+				<th  class="title header" scope="col"><div align="center">Fe</div></th>
+				<th  class="title header" scope="col"><div align="center">Pb</div></th>
+				<th  class="title header" scope="col"><div align="center">Sn</div></th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{AL}</div></td>
+				<td><div align="center">{CR}</div></td>
+				<td><div align="center">{CU}</div></td>
+				<td><div align="center">{FE}</div></td>
+				<td><div align="center">{PB}</div></td>
+				<td><div align="center">{SN}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<div class="enlace_accion"><span>	Contaminantes </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th  class="title header" scope="col"><div align="center">Si</div></th>
+				<th  class="title header" scope="col"><div align="center">B</div></th>
+				<th  class="title header" scope="col"><div align="center">Na</div></th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{SI}</div></td>
+				<td><div align="center">{B}</div></td>
+				<td><div align="center">{NA}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+		<div class="enlace_accion"><span> Aditivos </span></div>
+	<table id="tb4" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col"><div align="center">Mg</div></th>
+				<th class="title header" scope="col"><div align="center">Ca</div></th>
+				<th class="title header" scope="col"><div align="center">Zn</div></th>
+				<th class="title header" scope="col"><div align="center">P</div></th>
+				<th  class="title header" scope="col"><div align="center">Mo</div></th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{MG}</div></td>
+				<td><div align="center">{CA}</div></td>
+				<td><div align="center">{ZN}</div></td>
+				<td><div align="center">{P}</div></td>
+				<td><div align="center">{MO}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<div class="enlace_accion"><span>	Propiedades Fisicas </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col"><div align="center">Crepitacion </div></th>	  
+				<th class="title header" scope="col"><div align="center">Viscosidad 40 &deg;C  </div></th>
+				<th class="title header" scope="col"><div align="center">Viscosidad 100 &deg;C </div></th>
+				<th class="title header" scope="col"><div align="center">Agua Karl Fisher %</div></th>
+				<th class="title header" scope="col"><div align="center">Holl&iacute;n</div></th>
+				<th class="title header" scope="col"><div align="center">Acidez</div></th>
+            <th class="title header" scope="col"><div align="center">Numero Basico</div></th>
+			</tr>
+		</thead>
+		<tfoot>
+		</tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{CREPITACION}</div></td>
+				<td><div align="center">{VISC40}</div></td>
+				<td><div align="center">{VISC100}</div></td>
+				<td><div align="center">{WATER}</div></td>
+				<td><div align="center">{HO}</div></td>
+				<td><div align="center">{AC}</div></td>
+				<td><div align="center">{NB}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<div id="enlaces_accion">
+		<!-- BEGIN: enlace_comportamiento -->
+		<span>
+			[ <a class="enlaces" href="{pagina_principal}?op=reporte&amp;accion=grafico&amp;id={id_equipo}" target="_blank">Comportamiento del Equipo</a> ]
+		</span>
+		<!-- END: enlace_comportamiento -->
+	</div>
+	<div id="formularios">
+		<form id="frm1" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="agregar"/>
+			<input style="border: hidden" type="hidden" name="id_Muestra" id="id_Muestra" value="{id_Muestra}"/>
+			<input style="border: hidden" type="hidden" name="id_Solicitud" id="id_Solicitud" value="{id_Solicitud}"/>
+			<fieldset>
+				<legend>Agregar Recomendaci&oacute;n:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr align="center">
+						<td colspan="2" class="requerido" style="text-align:right;">(*)Campo Requeridos&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="2%" class="tag"><span class="requerido">*</span></td>
+						<td>
+							<textarea id="txtrecomendacion" name="txtrecomendacion" cols="60" rows="5" {campo_requerido}></textarea>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  name="btnsubmit" id="btnok" type="submit" value="Aceptar" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>
+	</div>
+	<!-- END: tabla_muestra_recomendar -->
+	<!-- BEGIN: confirmacion -->
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<fieldset>
+				<legend>Confirmacion de Solicitud</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Su recomendacion ha sido guardada satisfactoriamente</b>.
+					<br />
+					<br />
+				</p>
+			</fieldset>
+			<div class="botones">
+				<input  id="btnok" name="btnok" value="Aceptar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>			 
+	</div>
+	<!-- END: confirmacion -->
+	<!-- BEGIN: norecomendaciones -->
+	<br />
+	<div id="formularios">
+		<fieldset>
+			<legend>Mensaje de Aviso </legend>
+			<p style="text-align:center;">
+				<br />
+					No existen Muestras para recomendar en este momento.
+				<br />
+				&nbsp;
+			</p>
+		</fieldset>
+	</div>
+	<!-- END: norecomendaciones -->
+</div>
+<!-- END: contenido -->

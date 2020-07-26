@@ -1,0 +1,80 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo_web}</title>
+<!-- Aqui comienzan las etiquetas meta -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Language" content="es_VE"/>
+<!-- Aqui terminan las etiquetas meta -->
+<!-- Hojas de estilo-->
+<link rel="stylesheet" type="text/css" media="screen" href="./css/layout.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/forms.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/tables.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/header.css"/>
+<!-- Fin de hojas de estilo-->
+<!-- Javascripts-->
+<script language="javascript" type="text/javascript" src="./jscripts/jquery-1.2.6.pack.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.corner.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery-calendar.pack.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.metadata.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jscripts.js"></script>
+<!--  Fin Javascripts-->
+</head>
+
+<body>
+	<div id="bg">
+		<div id="container">
+			<div id="login"></div>
+			<div id="head">
+				<div id="header">{FILE {TOP_HEADER}}</div>
+				<div id="identify">
+					<div id="welcome"></div>
+					<div id="date">{fecha_hoy}</div>
+				</div>
+			</div>
+			<div align="center">
+						  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase=		"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="610" height="70" align="middle" title="">
+						  <param name="movie" value="./images/Banner.swf" />
+						  <param name="quality" value="high" />
+						  <embed src="./images/Banner.swf" width="610" height="70" align="middle" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+					  </object>
+			</div>
+			<div id="main">
+				<div id="formulario_login">
+					<fieldset>
+						<legend>Inicio de Sesi&oacute;n</legend>
+							<form id="frm1" name="frm1" method="post" enctype="multipart/form-data" action="login.php" xml:lang="es" lang="es">
+							<table align="center" border="0" cellpadding="2" cellspacing="0" width="350">
+								<tr><td>&nbsp;</td></tr>
+								<tr>
+									<td colspan="2">
+										<div id="message" class="message" style="display:{msj_uno};">{mensaje}<br />&nbsp;</div>
+									</td>
+								</tr>
+								<tr>
+									<td width="130" class="tag">Usuario:</td>
+									<td><input id="txtuser" name="txtuser" size="20" maxlength="75" type="text"/></td>
+								</tr>
+								<tr>
+									<td  class="tag">Contrase&ntilde;a:</td>
+									<td><input id="txtpass" name="txtpass" size="20" maxlength="25" type="password"/></td>
+								</tr>
+								<tr><td>&nbsp;</td></tr>
+								<tr>
+									<td  align="center"colspan="2"><input  id="btnentrar" name="btnentrar" value="Entrar" type="submit"/></td>
+								</tr>
+							</table>
+							</form>
+							<br />
+					</fieldset><br />
+				</div>
+			</div>
+			<div id="footer">{FILE {BOTTOM}}</div>
+		</div>
+	</div>
+</body>
+<!-- END: main -->

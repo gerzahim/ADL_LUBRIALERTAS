@@ -1,0 +1,654 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<div id="message" class="message" >{mensaje}</div>
+	<!-- BEGIN: tabla_solicitud -->
+	<h1>Solicitudes</h1>
+	<br />
+	  <div id="enlaces_accion">
+    		<!-- BEGIN: agregar -->
+    			<span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=buscar">Busqueda por Cliente</a> ]</span>
+    		<!-- END: agregar -->
+  	  </div>
+	<div class="enlace_accion"><span>Lista de Solicitudes</span></div>
+		<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+			<thead>
+				<tr>
+					<th class="title header" scope="col"  width="28">Ver Solicitud</th>
+					<th width="70" class="title header" scope="col"><div align="center"> Codigo Solicitud </div></th>
+					<th width="150" class="title header" scope="col"><div align="center">Nombre Cliente</div></th>
+					<th width="85" class="title header" scope="col"><div align="center">Fecha</div></th>
+					<th width="70" class="title header" scope="col"><div align="center">Hora</div></th>
+					<th width="70" class="title header" scope="col">Cantidad Muestras</th>
+					<th class="title header" scope="col">Estatus</th>
+				</tr>
+			</thead>
+			<tfoot></tfoot>
+			<tbody>
+			<!-- BEGIN: lista_solicitud -->
+			<tr class="{estilo_fila}" style="height:50px;">
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=print&amp;id={id_Solicitud}" title="Imprimir"><img src="./images/printer.gif" width="20" height="18" border="0"/></a>
+				</td>
+				<td scope="row" align="center">{cod_solcitud}</td>
+				<td align="center">{nombre_actor}</td>
+				<td align="center">{fecha}</td>
+				<td align="center">{hora}</td>
+				<td align="center">{cantidad_muestras}</td>
+				<td align="center">
+					<table style="width:100%; margin:0px; padding:0px; border:1px solid #BBBBBB;" cellpadding="0" cellspacing="0">
+						<tr style="height:10px;">
+							<td align="left"><img src="./images/barra.gif" border="0" height="10" width="{status}"/></td>
+						</tr>
+					</table>
+					<!-- class= "enlace_porcentaje" -->
+					<a class="" href="{pagina_principal}?op={opcion_sistema}&amp;accion=status&amp;id={id_Solicitud}">{status}</a>
+				</td>
+			</tr>
+			<!-- END: lista_solicitud -->
+			</tbody>
+		</table>
+		<br/>
+	<div class="paginas">{paginacion}</div>
+	<!-- END: tabla_solicitud -->
+	<!-- BEGIN: buscar -->
+<div id="formularios">
+  <form id="frm2" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es" onsubmit="return ValiDate();">
+    <input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+	    <input style="border: hidden" type="hidden" name="accion" id="accion" value="avanzada"/>
+	    <input style="border: hidden" type="hidden" name="id_nombre" id="id_nombre" value="{id_nombre}"/>
+    <fieldset>
+    <legend>Seleccionar Cliente</legend>
+    <table>
+      <tr>
+        <td width="200" class="tag">Nombre del Cliente:</td>
+        <td><select name='id_nombre' id='selectPersona'>
+            <!-- BEGIN: permutar -->
+            <option  selected value="{Id}" >{Nombre}</option>	       
+            <!-- END: permutar -->      
+          </select>
+        </td>
+      </tr>
+    </table>
+    <input  id="btnok" name="btnbuscar" value="Buscar" type="submit" class="boton"/>
+    &nbsp;&nbsp;&nbsp; <br />
+    &nbsp;
+    </p>
+    </fieldset>
+  </form>
+</div>
+<!-- END: buscar -->
+
+
+	<!-- BEGIN: print -->
+	<div class="enlace_accion"><span>Vista Preliminar</span></div>
+	<h1>Falta por desarrollar el Modulo para Imprimir </h1>
+	<!-- END: print -->
+
+	<!-- BEGIN: status -->
+	<h1>Solicitudes</h1>
+	<br />
+	<div class="normal">
+		<h3>Estatus de Solicitud</h3>
+		<table align="center" border="0" cellpadding="2" cellspacing="0" width=100%>
+			<tr>
+				<td colspan="3">
+					<div id="message" class="message" style="display:{msj_uno};">Numero Solicitud: {codigo_solicitud}<br />&nbsp;</div>
+				</td>
+			</tr>
+			<!-- BEGIN: lista_status -->
+			<tr>
+				<td width="56"><div align="center"><img src="./images/{nombre_imagen}.gif" /></div></td>
+				<td width="350">{nombre_status}</td>
+				<td>
+					<!-- BEGIN: fecha_status_operacion -->{fecha_estatus}<!-- END: fecha_status_operacion -->
+					<!-- BEGIN: modificar_status -->
+					<span>
+					[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=modificar&amp;id_solicitud={id_Solicitud}">Modificar a Entregado</a> ]
+					</span>
+					<!-- END: modificar_status -->
+				</td>
+			</tr>
+			<!-- END: lista_status -->
+			<tr>
+				<td colspan="3" align="center">
+					<input  id="btncancel" name="btncancelar" value="Regresar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<!-- END: status -->
+	<!-- BEGIN: modificacion -->
+	<h1>Solicitudes</h1>
+	<br />
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="cambiar"/>
+			<input style="border: hidden" type="hidden" name="id_solicitud" id="id_solicitud" value="{id_Solicitud}"/>
+			<fieldset>
+				<legend>Actualizar Status de la Solicitud</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Advertencia</b>: Ud. al presionar aceptar, declara que las muestras de la solicitud, ya fueron entregadas a la empresa transportista.
+					<br />
+					<br /><br />
+					&iquest; Esta seguro de actualizar el Estatus ?
+					<br />
+					<br />
+					<input  id="btnok" name="btnaceptar" value="Aceptar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+					<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+					<br />
+					&nbsp;
+				</p>
+			</fieldset>
+		</form>
+	</div>
+	<!-- END: modificacion -->
+
+
+
+	<!-- BEGIN: tabla_muestra -->
+	<div id="enlaces_accion">
+		<span>[ <a class="enlaces" href="./export/impresion.php?{opciones}" target="_blank">Version Imprimir</a> ]</span>
+	</div>
+	<div class="enlace_accion">
+		<span>Codigo de Solicitud</span><h4>{Cod_Solicitud}</h4>
+		<span>Lista de Muestras </span>
+	</div>
+	<br/>
+	<!-- BEGIN: lista_muestra -->
+	<div class="enlace_accion"><span>Equipo</span></div>
+	<table width="100%" cellpadding="1" cellspacing="1" class="table_list" id="tb1" summary="Datos del Equipo" style="color:#444444;">
+		<tr class="odd">
+			<td width="25%" class="title header" scope="col"><div align="left"> C&oacute;digo Muestra </div></td>
+			<td width="25%"><div align="left">{Cod_Muestra}</div></td>
+			<td  class="title header" scope="col" align="center">Descripcion del Equipo</td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">C&oacute;digo Equipo</div></td>
+			<td align="left">{Codigo_Equipo}</td>
+			<td rowspan="9" valign="top" align="justify">{Descripcion}</td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">Nombre Equipo</div></td>
+			<td><div align="left">{Nombre_Equipo}</div></td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">Tipo</div></td>
+			<td><div align="left">{Tipo}</div></td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">Marca</div></td>
+			<td><div align="left">{Marca}</div></td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">Modelo</div></td>
+			<td><div align="left">{Modelo}</div></td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">Capacidad Sistema</div></td>
+			<td><div align="left">{Capacidad_Sistema}                </div></td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">Lubricante y Tipo</div></td>
+			<td><div align="left">{Producto_Grado}</div></td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">Horas</div></td>
+			<td><div align="left">{hora}</div></td>
+		</tr>
+		<tr class="odd">
+			<td class="title header" scope="col"><div align="left">kil&oacute;metros</div></td>
+			<td><div align="left">{km}</div></td>
+		</tr>
+	</table><br/>
+	<!-- END: lista_muestra -->
+	<br/>
+	<!-- BEGIN: lista_codigo -->
+	<div class="normal">
+		<span>&nbsp;</span>
+			<table width="207" align="center" cellpadding="0" cellspacing="0">
+				<tr><td align="left"><img src="./images/tijera.gif" width="40" height="29"/></td></tr>
+			</table> 
+			<table width="270" align="center" style="border:2px dashed gray">
+				<tr><td>&nbsp;</td></tr>
+				<tr><td align="center">{titulo}</td></tr>
+				<tr><td align="center"><img src='{imagen}' /></td></tr>
+				<tr><td>&nbsp;</td></tr>
+			</table><br/>
+	</div>
+	<!-- END: lista_codigo -->
+	<div class="botones">
+		<input  id="btnok" name="btnregresar" value="Regresar" type="button" class="boton" onClick="location='{ruta_regreso}'"/>
+	</div>
+	<!-- END: tabla_muestra -->
+
+	<!-- BEGIN: tabla_muestra_recomendar -->
+	<h1>Propiedades de la muestra</h1>
+	<br />
+	<div id="enlaces_accion">
+		<a href="./export/resultados.php?id_Muestra={id_Muestra}&amp;tipo={tipo}" >[Imprimir]</a> 
+	</div>
+	<div class="enlace_accion"><span>Equipo</span></div>
+	<table width="100%" cellpadding="1" cellspacing="1" class="table_list" id="tb1" summary="Datos del Equipo" style="color:#444444;">
+		<tr class="{estilo_fila}">
+			<td width="25%"  class="title header" scope="col"><div align="left"> Codigo Muestra </div></td>
+			<td width="25%"><div align="left">{Cod_Muestra}</div></td>
+			<td  class="title header" scope="col"><div align="center">Descripcion del Equipo</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">C&oacute;digo Equipo</div></td>
+			<td><div align="left">{Codigo_Equipo}</div></td>
+			<td rowspan="9" valign="top">{Descripcion}</td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Nombre Equipo</div></td>
+			<td><div align="left">{Nombre_Equipo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Tipo</div></td>
+			<td><div align="left">{Tipo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Marca</div></td>
+			<td><div align="left">{Marca}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Modelo</div></td>
+			<td><div align="left">{Modelo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Capacidad Sistema</div></td>
+			<td><div align="left">{Capacidad_Sistema}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Lubricante y Tipo</div></td>
+			<td><div align="left">{Producto_Grado}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Hora</div></td>
+			<td><div align="left">{hora}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">km</div></td>
+			<td><div align="left">{km}</div></td>
+		</tr>
+	</table><br/>
+	<div class="enlace_accion"><span>Contenido de Metales </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th  class="title header" scope="col"><div align="center">Condicion</div></th>
+				<th  class="title header" scope="col"><div align="center">Fe</div></th>
+				<th  class="title header" scope="col"><div align="center">Cr</div></th>
+				<th  class="title header" scope="col"><div align="center">Pb</div></th>
+				<th  class="title header" scope="col"><div align="center">Cu</div></th>
+				<th  class="title header" scope="col"><div align="center">Sn</div></th>
+				<th  class="title header" scope="col"><div align="center">Al</div></th>
+				<th  class="title header" scope="col"><div align="center">Ni</div></th>
+				<th  class="title header" scope="col"><div align="center">Ag</div></th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{C}</div></td>
+				<td ><div align="center">{FE}</div></td>
+				<td><div align="center">{CR}</div></td>
+				<td><div align="center">{PB}</div></td>
+				<td><div align="center">{CU}</div></td>
+				<td><div align="center">{SN}</div></td>
+				<td><div align="center">{AL}</div></td>
+				<td><div align="center">{NI}</div></td>
+				<td><div align="center">{AG}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<div class="enlace_accion"><span>	Contaminantes </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th  class="title header" scope="col"><div align="center">Mg</div></th>
+				<th  class="title header" scope="col"><div align="center">Si</div></th>
+				<th  class="title header" scope="col"><div align="center">B</div></th>
+				<th  class="title header" scope="col"><div align="center">Na</div></th>
+				<th  class="title header" scope="col"><div align="center">K</div></th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{MG}</div></td>
+				<td><div align="center">{SI}</div></td>
+				<td><div align="center">{B}</div></td>
+				<td><div align="center">{NA}</div></td>
+				<td><div align="center">{K}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<!-- BEGIN: ver_aditivos -->
+		<div class="enlace_accion"><span> Aditivos </span></div>
+	<table id="tb4" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col"><div align="center">Mg</div></th>
+				<th class="title header" scope="col"><div align="center">Ca</div></th>
+				<th class="title header" scope="col"><div align="center">Ba</div></th>
+				<th class="title header" scope="col"><div align="center">P</div></th>
+				<th class="title header" scope="col"><div align="center">Zn</div></th>	
+				<th class="title header" scope="col"><div align="center">Mo</div></th>
+				<th class="title header" scope="col"><div align="center">Ti</div></th>
+				<th class="title header" scope="col"><div align="center">V</div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{MG}</div></td>
+				<td><div align="center">{CA}</div></td>
+				<td><div align="center">{BA}</div></td>
+				<td><div align="center">{P}</div></td>
+				<td><div align="center">{ZN}</div></td>
+				<td><div align="center">{MO}</div></td>
+				<td><div align="center">{TI}</div></td>
+				<td><div align="center">{V}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<!-- END: ver_aditivos -->
+	<div class="enlace_accion"><span>	Propiedades Fisicas </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th  class="title header" scope="col"><div align="center">Glycol</div></th>	  
+				<th class="title header" scope="col"><div align="center">Viscosidad &deg;C 100</div></th>
+				<th class="title header" scope="col"><div align="center">Viscosidad &deg;C 40 </div></th>
+				<th  class="title header" scope="col"><div align="center">Agua Karl Fisher %</div></th>
+				<th  class="title header" scope="col"><div align="center">Holl&iacute;n</div></th>
+				<th class="title header" scope="col"><div align="center">Crepitacion </div></th>
+				<th  class="title header" scope="col"><div align="center">Numero Total Acidos</div></th>
+			</tr>
+		</thead>
+		<tfoot>
+		</tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{GLYCOL}</div></td>
+				<td><div align="center">{VISC100}</div></td>
+				<td><div align="center">{VISC40}</div></td>
+				<td><div align="center">{WATER}</div></td>
+				<td><div align="center">{SOOT}</div></td>
+				<td><div align="center">{CREPITACION}</div></td>
+				<td><div align="center">{TAN}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<div id="enlaces_accion">
+		<!-- BEGIN: enlace_modificar -->
+		<span>
+			[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=modrec&amp;muestra={id_Muestra}">
+				Modificar Recomendaci&oacute;n
+			</a> ]
+		</span>
+		<!-- END: enlace_modificar -->
+	</div>
+	<fieldset>
+		<legend>Recomendaci&oacute;n:</legend>
+		<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+			<tr align="center"><td colspan="2" style="text-align:justify;" >{Recomendacion}</td></tr>
+		</table>
+	</fieldset>
+		<div class="botones">
+		<input  id="btnok" name="btnregresar" value="Regresar" type="button" class="boton" onClick="location='{ruta_regreso}'"/>
+	</div>
+	<!-- END: tabla_muestra_recomendar -->
+	<!-- BEGIN: lista_muestra_recomendacion -->
+	<div class="enlace_accion">
+		<span>Lista de Muestras </span><br><br>
+		<div><span>Codigo Solicitud : <strong>{Cod_Solicitud}</strong></span></div>
+	</div><br>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th width="100" class="title header" scope="col">C&oacute;digo Muestra</th>
+				<th width="100" class="title header" scope="col">C&oacute;digo Equipo</div></th>
+				<th width="200" class="title header" scope="col">Nombre Equipo</div></th>
+				<th width="120" class="title header" scope="col">Tipo</th>
+				<th width="120" class="title header" scope="col">Marca</th>
+				<th width="120" class="title header" scope="col">Modelo</th>
+				<th class="title header" scope="col">Recomendaci&oacute;n</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: listas_muestras -->
+			<tr class="{estilo_fila}">
+				<td scope="row"><div align="center">{Cod_Muestra}</div></td>
+				<td><div align="center">{Codigo_Equipo}</div></td>
+				<td><div align="center">{Nombre_Equipo}</div></td>
+				<td><div align="center">{Tipo}</div></td>
+				<td><div align="center">{Marca}</div></td>
+				<td><div align="center">{Modelo}</div></td>
+				<td align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=ver_recomendacion&amp;id_Mues={id_Muestras}" class="enlace_porcentaje">Ver</a>
+				</td>
+			</tr>
+			<!-- END: listas_muestras -->
+		</tbody>
+	</table>
+	<br/>
+	<div class="paginas">{paginacion}</div>
+		<div class="botones">
+		<input  id="btnok" name="btnregresar" value="Regresar" type="button" class="boton" onClick="location='{ruta_regreso}'"/>
+	</div>
+	<!-- END: lista_muestra_recomendacion -->
+	<!-- BEGIN: nosolicitudes -->
+	<h1>Solicitudes</h1>
+	<br />
+	<div id="formularios">
+		<fieldset>
+			<legend>Mensaje de Aviso </legend>
+			<p style="text-align:center;">
+				<br />
+				Ud. No tiene Solicitudes en este Momento.
+				<br />
+				&nbsp;
+			</p>
+		</fieldset>
+	</div><!--
+			<div class="botones">
+		<input  id="btnok" name="btnregresar" value="Regresar" type="button" class="boton" onClick="location='{ruta_regreso}'"/>
+	</div> -->
+	<!-- END: nosolicitudes -->
+	
+	
+	<!-- BEGIN: modifica_muestra_recomendar -->
+	<h1>Propiedades de la muestra a recomedar</h1>
+	<br />
+	<div class="enlace_accion"><span>Equipo</span></div>
+	<table width="100%" cellpadding="1" cellspacing="1" class="table_list" id="tb1" summary="Datos del Equipo" style="color:#444444;">
+		<tr class="{estilo_fila}">
+			<td width="25%"  class="title header" scope="col"><div align="left"> C&oacute;digo Muestra </div></td>
+			<td width="15%" ><div align="left">{Cod_Muestra}</div></td>
+			<td  class="title header" scope="col"><div align="center">Descripci&oacute;n del Equipo</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">C&oacute;digo Equipo</div></td>
+			<td><div align="left">{Codigo_Equipo}</div></td>
+			<td rowspan="9" valign="top">{Descripcion}</td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Nombre Equipo</div></td>
+			<td><div align="left">{Nombre_Equipo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Marca</div></td>
+			<td><div align="left">{Marca}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Tipo</div></td>
+			<td><div align="left">{Tipo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Modelo</div></td>
+			<td><div align="left">{Modelo}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Capacidad Sistema</div></td>
+			<td><div align="left">{Capacidad_Sistema}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Lubricante y Tipo</div></td>
+			<td><div align="left">{Producto_Grado}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">Hora</div></td>
+			<td><div align="left">{hora}</div></td>
+		</tr>
+		<tr class="{estilo_fila}">
+			<td class="title header" scope="col"><div align="left">km</div></td>
+			<td><div align="left">{km}</div></td>
+		</tr>
+	</table><br/>
+<div class="enlace_accion"><span>Contenido de Metales </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th  class="title header" scope="col"><div align="center">Condicion</div></th>
+				<th  class="title header" scope="col"><div align="center">Fe</div></th>
+				<th  class="title header" scope="col"><div align="center">Cr</div></th>
+				<th  class="title header" scope="col"><div align="center">Pb</div></th>
+				<th  class="title header" scope="col"><div align="center">Cu</div></th>
+				<th  class="title header" scope="col"><div align="center">Sn</div></th>
+				<th  class="title header" scope="col"><div align="center">Al</div></th>
+				<th  class="title header" scope="col"><div align="center">Ni</div></th>
+				<th  class="title header" scope="col"><div align="center">Ag</div></th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{C}</div></td>
+				<td ><div align="center">{FE}</div></td>
+				<td><div align="center">{CR}</div></td>
+				<td><div align="center">{PB}</div></td>
+				<td><div align="center">{CU}</div></td>
+				<td><div align="center">{SN}</div></td>
+				<td><div align="center">{AL}</div></td>
+				<td><div align="center">{NI}</div></td>
+				<td><div align="center">{AG}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<div class="enlace_accion"><span>	Contaminantes </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th  class="title header" scope="col"><div align="center">Mg</div></th>
+				<th  class="title header" scope="col"><div align="center">Si</div></th>
+				<th  class="title header" scope="col"><div align="center">B</div></th>
+				<th  class="title header" scope="col"><div align="center">Na</div></th>
+				<th  class="title header" scope="col"><div align="center">K</div></th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{MG}</div></td>
+				<td><div align="center">{SI}</div></td>
+				<td><div align="center">{B}</div></td>
+				<td><div align="center">{NA}</div></td>
+				<td><div align="center">{K}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<!-- BEGIN: ver_aditivos_modificar -->
+		<div class="enlace_accion"><span> Aditivos </span></div>
+	<table id="tb4" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col"><div align="center">Mg</div></th>
+				<th class="title header" scope="col"><div align="center">Ca</div></th>
+				<th class="title header" scope="col"><div align="center">Ba</div></th>
+				<th class="title header" scope="col"><div align="center">P</div></th>
+				<th class="title header" scope="col"><div align="center">Zn</div></th>	
+				<th class="title header" scope="col"><div align="center">Mo</div></th>
+				<th class="title header" scope="col"><div align="center">Ti</div></th>
+				<th class="title header" scope="col"><div align="center">V</div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{MG}</div></td>
+				<td><div align="center">{CA}</div></td>
+				<td><div align="center">{BA}</div></td>
+				<td><div align="center">{P}</div></td>
+				<td><div align="center">{ZN}</div></td>
+				<td><div align="center">{MO}</div></td>
+				<td><div align="center">{TI}</div></td>
+				<td><div align="center">{V}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<!-- END: ver_aditivos_modificar -->
+	<div class="enlace_accion"><span>	Propiedades Fisicas </span></div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th  class="title header" scope="col"><div align="center">Glycol</div></th>	  
+				<th class="title header" scope="col"><div align="center">Viscosidad &deg;C 100</div></th>
+				<th class="title header" scope="col"><div align="center">Viscosidad &deg;C 40 </div></th>
+				<th  class="title header" scope="col"><div align="center">Agua Karl Fisher %</div></th>
+				<th  class="title header" scope="col"><div align="center">Holl&iacute;n</div></th>
+				<th class="title header" scope="col"><div align="center">Crepitacion </div></th>
+				<th  class="title header" scope="col"><div align="center">Numero Total Acidos</div></th>
+			</tr>
+		</thead>
+		<tfoot>
+		</tfoot>
+		<tbody>
+			<tr class="{estilo_fila}">
+				<td><div align="center">{GLYCOL}</div></td>
+				<td><div align="center">{VISC100}</div></td>
+				<td><div align="center">{VISC40}</div></td>
+				<td><div align="center">{WATER}</div></td>
+				<td><div align="center">{SOOT}</div></td>
+				<td><div align="center">{CREPITACION}</div></td>
+				<td><div align="center">{TAN}</div></td>
+			</tr>
+		</tbody>
+	</table><br/>
+	<div id="enlaces_accion">
+		<!-- BEGIN: enlace_comportamiento -->
+		<span>
+			[ <a class="enlaces" href="./export/graph_page.php?marca={aleatorio}&amp;reporte={tipo_reporte}&amp;e={id_equipo}" target="_blank">Comportamiento del Equipo</a> ]
+		</span>
+		<!-- END: enlace_comportamiento -->
+	</div>
+	<div id="formularios">
+		<form id="frm1" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="update"/>
+			<input style="border: hidden" type="hidden" name="muestra" id="muestra" value="{id_Muestra}"/>
+			<fieldset>
+				<legend>Modificar Recomendaci&oacute;n:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr align="center">
+						<td colspan="2" class="requerido" style="text-align:right;">(*)Campo Requeridos&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="2%" class="tag"><span class="requerido">*</span></td>
+						<td>
+							<textarea id="txtrecomendacion" name="txtrecomendacion" cols="60" rows="5" {campo_requerido}>{Recomendacion}</textarea>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  name="btnsubmit" id="btnok" type="submit" value="Modificar" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>
+	</div>
+	<!-- END: modifica_muestra_recomendar -->
+
+<!-- END: contenido -->

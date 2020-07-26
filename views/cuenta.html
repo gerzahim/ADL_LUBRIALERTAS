@@ -1,0 +1,44 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<h1>Mi Cuenta</h1>
+	<div id="message" class="message" >{mensaje}</div>
+	<br />
+	<!-- BEGIN: formulario -->
+	<div id="formularios">
+		<form name="frm1" id="frm1" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="upd"/>
+			<fieldset>
+				<legend>Formulario de Cambio de Contrase&ntilde;a:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2" class="requerido" style="text-align:right;">(*)Campos Requeridos&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td class="tag" width="230"><span class="requerido">*</span> Contrase&ntilde;a Actual:</td>
+						<td><input id="txt_oldpass" name="txt_oldpass" size="30" maxlength="20" type="password" {clave_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="230"><span class="requerido">*</span> Nueva Contrase&ntilde;a:</td>
+						<td><input id="txt_newpass" name="txt_newpass" size="30" maxlength="20" type="password" {clave_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="230"><span class="requerido">*</span> Repetir Contrase&ntilde;a:</td>
+						<td><input id="txt_repeatpass" name="txt_repeatpass" size="30" maxlength="20" type="password" {reclave_requerido}/></td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  id="btnok" name="btnentrar" value="Cambiar" type="submit" class="boton"/>
+				<!-- BEGIN: boton -->
+				&nbsp;&nbsp;&nbsp;
+				<input  id="btncancel" name="btncancelar" value="Regresar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+				<!-- END: boton -->
+			</div>
+		</form>			 
+	</div>
+	<!-- END: formulario -->
+</div>
+<!-- END: contenido -->

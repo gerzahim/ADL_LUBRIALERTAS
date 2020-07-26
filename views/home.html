@@ -1,0 +1,21 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<br/>
+	<h2 class="titulo_home">Sistema  de {titulo_web}</h2>
+	<p style="margin-bottom:20px; padding-left:15px;">Usted ha ingresado al sistema con el perfil de <strong>{Nombre_Perfil}</strong></p>
+	<fieldset>
+		<legend>Con este perfil usted tendra acceso a los siguientes modulos:</legend>
+		<ul class="ul_home">
+			<!-- BEGIN: lista -->
+			<li class="li_home">
+				<a class="enlace_normal" href="{pagina_principal}?op={Referencia_Modulos}" title="{Nombre_Modulos}">
+					<img border="0" src="./images/{Referencia_Modulos}.png"/>
+				</a>
+				<br/>
+				<a class="enlace_normal" href="{pagina_principal}?op={Referencia_Modulos}">{Nombre_Modulos}</a>
+			</li>
+			<!-- END: lista -->
+		</ul>
+	</fieldset>
+</div>
+<!-- END: contenido -->

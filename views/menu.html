@@ -1,0 +1,39 @@
+<!-- <div style="background-image:url(./images/bgMenu.jpe); width:200px; height:400px"> 
+<br><br> -->
+<!-- BEGIN: menu -->
+<ul id="treemenu1" class="menu">
+	<!-- BEGIN: menu_padre -->
+	<li>
+		<a {referencia_padre}>{modulo_padre}</a>
+		<ul style="display:none;">
+			<!-- BEGIN: menu_hijo -->
+			<li>
+				<a {referencia_hijo}>{modulo_hijo}</a>
+				<ul style="display:none;">
+					<!-- BEGIN: menu_sub_hijo -->
+					<li><a href="{referencia_sub_hijo}">{modulo_sub_hijo}</a></li>
+					<!-- END: menu_sub_hijo -->
+				</ul>
+			</li>
+			<!-- END: menu_hijo -->
+		</ul>
+	</li>
+	<!-- END: menu_padre -->
+</ul>
+
+<script type="text/javascript">
+<!--
+//ddtreemenu.createTree(treeid, enablepersist, opt_persist_in_days (default is 1))
+ddtreemenu.createTree("treemenu1", true);
+-->
+</script>
+<!-- END: menu -->
+<!-- BEGIN: primer_acceso -->
+<div id="normal">
+	<p style="text-align:center; height:200px; padding-top:30px;">
+		Esta ingresando por<br/> primera vez al sistema!!!<br/><br/><br/>
+		Debe cambiar la contrase&ntilde;a para completar su activacion.
+	</p>
+</div>
+<!-- END: primer_acceso -->
+</div>

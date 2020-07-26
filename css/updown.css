@@ -1,0 +1,49 @@
+.controlUpdown {
+	width: 80px;
+	height: 32px;
+	display: table;
+	margin: 2px;
+}
+.tableUpdown {
+	padding: 0px;
+	margin: 0px;
+	border: 1px solid #cfcfcf;
+}
+
+.updown {
+	text-align: right;
+	font: 11pt tahoma;
+	font-weight: bold;
+	padding: 1px;
+}
+
+.updownover {
+	text-align: right;
+	font: 11pt tahoma;
+	font-weight: bold;	
+	border: 2px solid #8ef73b;
+	padding: 1px;
+}
+
+.upBox {
+	cursor:pointer; 
+	border:1px solid #ffffff; 
+	width:14px;
+	display: table-row;
+	margin: 0px;
+}
+
+.celluptext {
+	text-align:right;
+	vertical-align: middle;
+	margin: 0px;
+	padding: 2px;	
+}
+
+.cellup {
+	text-align:left;
+	vertical-align: top;
+	margin: 0px;
+	padding: 0px;
+	height: 28px !important;
+}

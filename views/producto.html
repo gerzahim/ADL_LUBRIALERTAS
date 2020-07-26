@@ -1,0 +1,145 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<h1>Productos</h1>
+	<div id="message" class="message" >{mensaje}</div>
+	<br />
+	<!-- BEGIN: listado -->
+	<div id="enlaces_accion">
+		<!-- BEGIN: agregar -->
+		<span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=add">Ingresar Producto</a> ]</span>
+		<!-- END: agregar -->
+		<span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=buscar">Buscar Producto</a> ]</span>
+	</div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col" width="20">&nbsp;</th>
+				<!-- BEGIN: eliminar_01 -->
+				<th class="title header" scope="col" width="20">&nbsp;</th>
+				<!-- END: eliminar_01 -->
+				<th class="title header" scope="col" width="70">C&oacute;digo</th>
+				<th class="title header" scope="col" width="280">Producto</th>
+				<th class="title header" scope="col">Descripci&oacute;n</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}">
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=mod&amp;id={id_Producto}" title="Ver / Modificar"><img src="./images/lapiz.gif" border="0"/></a>
+				</td>
+				<!-- BEGIN: eliminar_02 -->
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=del&amp;id={id_Producto}" title="Eliminar"><img src="./images/delete.png" border="0"/></a>
+				</td>
+				<!-- END: eliminar_02 -->
+				<td align="center">{Codigo_Producto}</td>
+				<td>&nbsp;{Nombre_Producto}</td>
+				<td>&nbsp;{Descripcion}</td>
+			</tr>
+			<!-- END: lista -->
+			<!-- BEGIN: no_lista -->
+			<tr class="even">
+				<td align="center" colspan="5" class="odden"><br />{sin_listado}<br />&nbsp;</td>
+			</tr>
+			<!-- END: no_lista -->
+		</tbody>
+		<caption>Listado de Productos</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!-- END: listado -->
+	<!-- BEGIN: busqueda -->
+	<div id="formularios">
+		<br />
+		<form id="frm1" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<fieldset>
+				<legend>Busqueda de Productos</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag">Por C&oacute;digo :</td>
+						<td><input id="codigo" name="codigo" size="30" maxlength="15" type="text" /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="200">Por  Nombre :</td>
+						<td><input id="nombre" name="nombre" size="30" maxlength="45" type="text" /></td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  id="btnok" name="btnentrar" value="Buscar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>			 
+	</div>
+	<!-- END: busqueda -->
+	<!-- BEGIN: eliminacion -->
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="del"/>
+			<input style="border: hidden" type="hidden" name="referencia" id="idreferencia" value="{id_registro}"/>
+			<fieldset>
+				<legend>Eliminar Productos</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Advertencia</b>: Esta por eliminar la informaci&oacute;n de un producto, debe tener cuidado...
+					<br /><br /><br />
+					&iquest; Esta seguro de eliminar el producto seleccionado ?
+					<br /><br />
+					<input  id="btnok" name="btneliminar" value="Eliminar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+					<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+					<br />
+					&nbsp;
+				</p>
+			</fieldset>
+		</form>			 
+	</div>
+	<!-- END: eliminacion -->
+	<!-- BEGIN: formulario -->
+	<div id="formularios">
+		<form name="frm1" id="frm1" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="{tipo_accion}"/>
+			<!-- BEGIN: identificador -->
+			<input style="border: hidden" type="hidden" name="referencia" id="idreferencia" value="{id_Producto}"/>
+			<!-- END: identificador -->
+			<fieldset>
+				<legend>Formulario de Datos del Producto:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2" class="requerido" style="text-align:right;">(*)Campos Requeridos&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td class="tag" width="230"><span class="requerido">*</span> Nombre:</td>
+						<td><input id="txt_name" name="txt_name" size="30" maxlength="70" type="text" value="{Nombre_Producto}" {campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> C&oacute;digo:</td>
+						<td><input id="txt_codigo" name="txt_codigo" size="30" maxlength="12" type="text" value="{Codigo_Producto}" {campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" valign="top">Descripci&oacute;n:</td>
+						<td><textarea id="area_descrip" name="area_descrip" cols="30" rows="5">{Descripcion_Producto}</textarea></td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<!-- BEGIN: boton -->
+				<input  id="btnok" name="btnenviar" value="{tag_boton}" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<!-- END: boton -->
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>			 
+	</div>
+	<!-- END: formulario -->
+</div>
+<!-- END: contenido -->

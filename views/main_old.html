@@ -1,0 +1,60 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{titulo_web}</title>
+<!-- Aqui comienzan las etiquetas meta -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Language" content="es_VE"/>
+<!-- Aqui terminan las etiquetas meta -->
+<!-- Hojas de estilo-->
+<link rel="stylesheet" type="text/css" media="screen" href="./css/layout.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/menu.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/forms.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/tables.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/header.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="./css/jquery-calendar.css"/>
+<!-- Fin de hojas de estilo-->
+<!-- Javascripts-->
+<script language="javascript" type="text/javascript" src="./jscripts/simpletreemenu.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery-1.2.6.pack.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.corner.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.selectboxes.pack.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery-calendar.pack.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.metadata.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript" src="./jscripts/jscripts.js"></script>
+<!--  Fin Javascripts-->
+</head>
+<body>
+	<!-- BEGIN: conexion_fallida -->
+	<div id="wait">{mensaje_conexion}</div>
+	<!-- END: conexion_fallida -->
+	<div id="bg">
+		<div id="container">
+			<div id="login">
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="{pagina_principal}">Inicio</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="{pagina_principal}?op=cuenta">Mi Cuenta</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="{pagina_principal}?op=close">Cerrar Sesion</a>&nbsp;&nbsp;|
+			</div>
+			<div id="head">
+				<div id="header">{FILE {TOP_HEADER}}</div>
+				<div id="identify">
+					<div id="welcome">Bienvenido, <span id="user">{nombre_usuario}</span></div>
+					<div id="date">{fecha_hoy}</div>
+				</div>
+			</div>
+			<div id="main">
+					<div id="nav">{FILE {MENU}}</div>
+					<div id="content">
+					<img src="./images/degradacion_roja-aux.png" width="610" height="20"/>
+					{FILE {CONTENIDO}}</div>
+			</div>
+			<div id="footer">{FILE {BOTTOM}}</div>
+		</div>
+	</div>
+</body>
+<!-- END: main -->

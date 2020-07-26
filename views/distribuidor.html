@@ -1,0 +1,285 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<h1>Distribuidores</h1>
+	<div id="message" class="message" >{mensaje}</div>
+	<br />
+	<!-- BEGIN: listado -->
+	<div id="enlaces_accion">
+		<!-- BEGIN: agregar -->
+		<span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=add">Ingresar Distribuidor</a> ]</span>
+		<!-- END: agregar -->
+		<span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=buscar">Buscar Distribuidor</a> ]</span>
+	</div>
+	<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+		<thead>
+			<tr>
+				<th class="title header" scope="col"  width="20">&nbsp;</th>
+				<!-- BEGIN: eliminar_01 -->
+				<th class="title header" scope="col"  width="20">&nbsp;</th>
+				<!-- END: eliminar_01 -->
+				<th class="title header" scope="col" width="200">Distribuidores</th>
+				<th class="title header" scope="col" width="90">RIF</th>
+				<th class="title header" scope="col" width="200">Correo</th>
+				<th class="title header" scope="col">Estatus</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<!-- BEGIN: lista -->
+			<tr class="{estilo_fila}">
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=mod&amp;id={id_Distribuidor}" title="Ver / Modificar"><img src="./images/lapiz.gif" border="0"/></a>
+				</td>
+				<!-- BEGIN: eliminar_02 -->
+				<td scope="row" align="center">
+					<a href="{pagina_principal}?op={opcion_sistema}&amp;accion=del&amp;id={id_Distribuidor}" title="Eliminar"><img src="./images/delete.png" border="0"/></a>
+				</td>
+				<!-- END: eliminar_02 -->
+				<td>&nbsp;{Nombres_Apellidos}</td>
+				<td align="center">{Rif}</td>
+				<td align="center">{Email}</td>
+				<!-- BEGIN: enlace_estatus -->
+				<td align="center">
+					<a class="{estilo_status}" href="{pagina_principal}?op={opcion_sistema}&amp;accion=status&amp;id={id_Distribuidor}">{status}</a>
+				</td>
+				<!-- END: enlace_estatus -->
+				<!-- BEGIN: no_enlace_estatus --><td align="center" class="{estilo_status}">{status}</td><!-- END: no_enlace_estatus -->
+			</tr>
+			<!-- END: lista -->
+			<!-- BEGIN: no_lista -->
+			<tr class="even">
+				<td align="center" colspan="6" class="odden"><br />{sin_listado}<br />&nbsp;</td>
+			</tr>
+			<!-- END: no_lista -->
+		</tbody>
+		<caption>	Listado de Distribuidores</caption>
+	</table>
+	<br />
+	<div class="paginas">{paginacion}</div>
+	<!-- END: listado -->
+	<!-- BEGIN: busqueda -->
+	<div id="formularios">
+		<br />
+		<form id="frm1" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<fieldset>
+				<legend>Busqueda de Distribuidores</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="200">Por  Nombre o Apellido :</td>
+						<td><input id="nombre" name="nombre" size="30" maxlength="45" type="text" /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag">Por  Indicador :</td>
+						<td><input id="indicador" name="indicador" size="30" maxlength="45" type="text" /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag">Por RIF :</td>
+						<td><input id="rif" name="rif" size="30" maxlength="8" type="text"  {rif_requerido} /></td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<input  id="btnok" name="btnentrar" value="Buscar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>			 
+	</div>
+	<!-- END: busqueda -->
+	<!-- BEGIN: vinculacion -->
+	<p style="text-align:center;">
+		<br />
+		<b>Advertencia</b>: El distribuidor ha eliminar esta asociado a uno o varios clientes!!!<br />
+		Por favor, primero elimine o cambie los clientes asociados a este distribuidor <br />
+		para proceder a la eliminacion....
+		<br /><br /><br />
+		<input  id="btnok" name="btncancelar" value="Regresar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+		<br />
+		&nbsp;
+	</p>
+	<!-- END: vinculacion -->
+	<!-- BEGIN: eliminacion -->
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="del"/>
+			<input style="border: hidden" type="hidden" name="referencia" id="idreferencia" value="{id_registro}"/>
+			<fieldset>
+				<legend>Eliminar Distribuidor</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Advertencia</b>: Esta por eliminar la informaci&oacute;n de un distribuidor, debe tener cuidado...
+					<br /><br /><br />
+					&iquest; Esta seguro de eliminar el distribuidor seleccionado ?
+					<br /><br />
+					<input  id="btnok" name="btneliminar" value="Eliminar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+					<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+					<br />
+					&nbsp;
+				</p>
+			</fieldset>
+		</form>			 
+	</div>
+	<!-- END: eliminacion -->
+	<!-- BEGIN: formulario -->
+	<div id="formularios">
+		<!-- BEGIN: generar -->
+		<div id="enlaces_accion">
+			<span>
+				[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=newpass&amp;id={id_Distribuidor}">Generar Nueva Contrase&ntilde;a</a> ]
+			</span>
+		</div>
+		<!-- END: generar -->
+		<form name="frm1" id="frm1" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input style="border: hidden" type="hidden" name="accion" id="idaccion" value="{tipo_accion}"/>
+			<!-- BEGIN: identificador -->
+			<input style="border: hidden" type="hidden" name="referencia" id="idreferencia" value="{id_Distribuidor}"/>
+			<!-- END: identificador -->
+			<fieldset>
+				<legend>Formulario de Datos del Distribuidor:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2" class="requerido" style="text-align:right;">(*)Campos Requeridos&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td class="tag" width="230"><span class="requerido">*</span> Nombre Distribuidor:</td>
+						<td><input id="txt_name" name="txt_name" size="30" maxlength="70" type="text" value="{Nombres_Apellidos}" {campo_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> Rif:</td>
+						<td><input id="txt_rif" name="txt_rif" size="30" maxlength="12" type="text" value="{Rif}" {rif_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"> Tel&eacute;fono Oficina:</td>
+						<td><input id="txt_telf_ofc" name="txt_telf_ofc" size="30" maxlength="25" type="text" value="{Telefono_Oficina}" /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"> Tel&eacute;fono Celular:</td>
+						<td><input id="txt_telf_cel" name="txt_telf_cel" size="30" maxlength="25" type="text" value="{Telefono_Celular}" /></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"> Fax:</td>
+						<td><input id="txt_fax" name="txt_fax" size="30" maxlength="25" type="text" value="{Fax}"/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="230"><span class="requerido">*</span> Email:</td>
+						<td><input id="txt_email" name="txt_email" size="30" maxlength="75" type="text" value="{Email}" {email_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" valign="top"><span class="requerido">*</span> Direcci&oacute;n:</td>
+						<td><textarea id="area_dir" name="area_dir" cols="30" rows="5" {campo_requerido}>{Direccion}</textarea></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="230"> Zona:</td>
+						<td>
+							<select id="op_zona" name="op_zona" >
+								<option value="0">Seleccione una zona.....</option>
+								<!-- BEGIN: lista_zonas -->
+								<option value="{id_zona}" {seleccion}>{nombre_zona}</option>
+								<!-- END: lista_zonas -->
+							</select>
+						</td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> Persona de Contacto:</td>
+						<td>
+							<input id="txt_contacto" name="txt_contacto" size="30" maxlength="50" type="text" value="{Persona_Contacto}" {campo_requerido}/>
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<br />
+			<fieldset>
+				<legend>Datos de Acceso:</legend>
+				<table align="center" border="0" cellpadding="2" cellspacing="0" width="100%">
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag"><span class="requerido">*</span> Login:</td>
+						<td><input id="txt_indicador" name="txt_indicador" size="30" maxlength="45" type="text" value="{Indicador_PDVSA}" {login_requerido}/></td>
+					</tr>
+					<tr><td colspan="2"></td></tr>
+					<tr>
+						<td class="tag" width="230"><span class="requerido">*</span> Perfil:</td>
+						<td>
+							<select id="op_perfil" name="op_perfil"  {campo_requerido}>
+								<option value="">Seleccione un perfil.....</option>
+								<!-- BEGIN: lista_perfiles -->
+								<option value="{id_Perfil}" {seleccion}>{Nombre_Perfil}</option>
+								<!-- END: lista_perfiles -->
+							</select>
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</fieldset>
+			<div class="botones">
+				<!-- BEGIN: boton -->
+				<input  id="btnok" name="btnentrar" value="{tag_boton}" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+				<!-- END: boton -->
+				<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+			</div>
+		</form>			 
+	</div>
+	<!-- END: formulario -->
+	<!-- BEGIN: cambio_status -->
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input  type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input  type="hidden" name="accion" id="idaccion" value="status"/>
+			<input  type="hidden" name="referencia" id="idreferencia" value="{id_registro}"/>
+			<fieldset>
+				<legend>Cambiar Estatus Distribuidor</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Advertencia</b>: Esta por cambiar el estatus del usuario a "Desconectado"...
+					<br /><br /><br />
+					&iquest; Esta seguro de cambiar el estatus del usuario seleccionado ?
+					<br /><br />
+					<input  id="btnok" name="btncambiar" value="Cambiar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+					<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+					<br />
+					&nbsp;
+				</p>
+			</fieldset>
+		</form>			 
+	</div>
+	<!-- END: cambio_status -->
+	<!-- BEGIN: generar_clave -->
+	<div id="formularios">
+		<form id="frm2" method="post" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es">
+			<input  type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+			<input  type="hidden" name="accion" id="idaccion" value="newpass"/>
+			<input  type="hidden" name="referencia" id="idreferencia" value="{id_registro}"/>
+			<fieldset>
+				<legend>Generar Nueva Clave</legend>
+				<p style="text-align:center;">
+					<br />
+					<b>Advertencia</b>: Esta por generar una nueva clave al usuario, si lo hace esta le sera enviada al correo.....
+					<br /><br /><br />
+					&iquest; Esta seguro de generar una clave nueva al usuario seleccionado ?
+					<br /><br />
+					<input  id="btnok" name="btngenerar" value="Generar" type="submit" class="boton"/>&nbsp;&nbsp;&nbsp;
+					<input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+					<br />
+					&nbsp;
+				</p>
+			</fieldset>
+		</form>			 
+	</div>
+	<!-- END: generar_clave -->
+</div>
+<!-- END: contenido -->

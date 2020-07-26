@@ -1,0 +1,129 @@
+<!-- BEGIN: auditoria -->
+
+<div class="normal">
+  <h1>Auditoria</h1>
+  <br />
+  <div class="enlace_accion"> <span>Logs de Auditoria</span> </div>
+  <div id="enlaces_accion">
+    <!-- BEGIN: agregar -->
+    <span>[ <a class="enlaces" href="{pagina_principal}?op={opcion_sistema}&amp;accion=buscar">Busqueda Avanzada</a> ]</span>
+    <!-- END: agregar -->
+  </div>
+	<div id="fecha_incorrecta" class="requerido" style="display:none;">
+		&nbsp;&nbsp;Las fechas estan incorrecta!!
+	</div>
+  <!-- BEGIN: tabla_auditoria -->
+  <table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+    <thead>
+      <tr>
+        <th width="100" class="title header" scope="col">Nombres</th>
+        <th width="80" class="title header" scope="col">Direccion IP</th>
+        <th width="80" class="title header" scope="col">Fecha</th>
+        <th width="70" class="title header" scope="col">Hora</th>
+        <th class="title header" scope="col">Acci&oacute;n</th>
+        <th width="100" class="title header" scope="col">Detalle</th>
+      </tr>
+    </thead>
+    <tfoot>
+    </tfoot>
+    <tbody>
+      <!-- BEGIN: lista_auditoria -->
+      <tr class="{estilo_fila}">
+        <td><div align="left">&nbsp;{nombre_actor}</div></td>
+        <td><div align="center">{ip}</div></td>
+        <td><div align="center">{fecha}</div></td>
+        <td><div align="center">{hora}</div></td>
+        <td><div align="left">&nbsp;{nombre_evento}</div></td>
+        <td><div align="left">&nbsp;{detalle}</div></td>
+      </tr>
+      <!-- END: lista_auditoria -->
+    </tbody>
+  </table><br/>
+<div class="paginas">{paginacion}</div>
+  <!-- END: tabla_auditoria -->
+</div>
+<!-- BEGIN: buscar -->
+<div id="formularios">
+  <form id="frm2" method="get" enctype="multipart/form-data" action="{pagina_principal}" xml:lang="es" lang="es" onsubmit="return ValiDate();">
+    <input style="border: hidden" type="hidden" name="op" id="idop" value="{opcion_sistema}"/>
+	    <input style="border: hidden" type="hidden" name="accion" id="accion" value="avanzada"/>
+    <fieldset>
+    <legend>Busqueda Avanzada</legend>
+    <table>
+      <tr>
+        <td width="200" class="tag">Rol  de la Persona:</td>
+        <td><select name='cargo' id='selectCargo'>
+            <option selected value="" >Seleccionar Cargo </option>
+            <option value="0">Personal</option>
+            <option value="1">Distribuidor</option>
+            <option value="2">Transportista</option>
+            <option value="3">Cliente Deltaven</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td width="200" class="tag">Nombre de la Persona:</td>
+        <td><select name='id_nombre' id='selectPersona'>
+            <option  selected value="" >Seleccionar Persona </option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <br />
+    <b>Fecha Inicio:</b>
+    <input type="text" name="date1" id="date1"  class="fecha2">
+    <br/>
+    <b>Fecha Final :</b>
+    <input type="text" name="date2" id="date2"  class="fecha2">
+    <br />
+    <input  id="btnok" name="btnbuscar" value="Buscar" type="submit" class="boton"/>
+    <input  id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+    &nbsp;&nbsp;&nbsp; <br />
+    &nbsp;
+    </p>
+    </fieldset>
+  </form>
+</div>
+<!-- END: buscar -->
+
+<!-- BEGIN: tabla_avanzada_auditoria -->
+<div id="enlaces_accion">
+	<span>[ <a class="enlaces" href="export/Exportar.php?{opciones}">Exportar</a> ]</span>
+</div>
+
+<table id="tb1" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+<thead>
+  <tr>
+	<th width="10%" class="title header" scope="col"><div align="center">Numero Evento </div></th>
+	<th width="15%" class="title header" scope="col"><div align="center">Nombre  </div></th>
+	<th width="10%" class="title header" scope="col"><div align="center">Direccion IP </div></th>
+	<th width="10%" class="title header" scope="col"><div align="center">Fecha</div></th>
+	<th width="10%" class="title header" scope="col"><div align="center">Hora</div></th>
+	<th width="30%" class="title header" scope="col">Acci&oacute;n</th>
+   <th width="15%" class="title header" scope="col">Detalle</th>
+  </tr>
+</thead>
+<tfoot>
+</tfoot>
+<tbody>
+  <!-- BEGIN: lista_avanzada_auditoria -->
+  <tr class="{estilo_fila}">
+	<td scope="row"><div align="center">{id_evento}</div></td>
+	<td><div align="left">&nbsp;{nombre_actor}</div></td>
+	<td><div align="center">{ip}</div></td>
+	<td><div align="center">{fecha}</div></td>
+	<td><div align="center">{hora}</div></td>
+	<td><div align="left">&nbsp;{nombre_evento}</div></td>
+	<td><div align="left">&nbsp;{detalle}</div></td>
+  </tr>
+  <!-- END: lista_avanzada_auditoria -->
+</tbody>
+</table><br/>
+<div class="paginas">{paginacion}</div>
+<br><br>
+<div align="center">
+<input id="btncancel" name="btncancelar" value="Cancelar" type="button" class="boton" onclick="location='{ruta_regreso}'"/>
+</div>
+<!-- END: tabla_avanzada_auditoria -->
+
+<!-- END: auditoria -->

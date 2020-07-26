@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+#cp {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+.picker {
+	display: table !important;
+	table-layout: auto;
+	border: 1px solid #cdcdcd;
+	padding: 2pt;
+	background-repeat: repeat-x;
+	border: 1px inset #6495ED;	
+}
+
+.pick {
+	display: table-cell;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+	width: 20px;
+	height: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	padding: 1px;
+}
+
+.txtpicker {
+	display: inline;
+	padding: 1px;
+	margin: 1px;
+}

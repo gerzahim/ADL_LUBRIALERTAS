@@ -1,0 +1,157 @@
+<!-- BEGIN: main -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Reporte</title>
+
+<!-- Aqui comienzan las etiquetas meta -->
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+<meta http-equiv="Content-Language" content="es_VE"/>
+<!-- Aqui terminan las etiquetas meta -->
+<!-- Hojas de estilo-->
+<link rel="stylesheet" type="text/css" media="screen" href="../css/layout.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../css/menu.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../css/forms.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../css/tables.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="../css/header.css"/>
+<!-- Fin de hojas de estilo-->
+<!-- Javascripts-->
+<script language="javascript" type="text/javascript" src="../jscripts/jquery-1.2.6.pack.js"></script>
+<script language="javascript" type="text/javascript" src="../jscripts/jquery.corner.js"></script>
+<script language="javascript" type="text/javascript" src="../jscripts/jquery-calendar.pack.js"></script>
+<script language="javascript" type="text/javascript" src="../jscripts/jquery.metadata.js"></script>
+<script language="javascript" type="text/javascript" src="../jscripts/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript" src="../jscripts/jscripts.js"></script>
+<!--  Fin Javascripts-->
+</head>
+
+<body>
+	<div id="bg">
+		<div id="container">
+			<div id="head">
+				<div id="header">
+					<div style="text-align:center"><img src="../images/header_oficial.gif" alt="PDVSA"/></div>
+					<div style="text-align:center"><img src="../images/banner_pdf.jpg" alt="PDVSA" width="780" height="45"/></div>
+				</div>
+				<div id="identify" >
+					<div id="welcome"></div>
+					<div id="date">{fecha_hoy}</div>
+				</div>
+			</div>
+			<div id="main">
+				<div id="niv"></div>
+				<div id="content" style="width:650px; margin:0px auto 0px auto;">
+					<div class="normal">
+						<div id="enlaces_accion">
+							<span><a class="enlaces" href="javascript:print();">| IMPRIMIR |</a></span>
+						</div>
+						<h1>Grafico Comportamiento</h1>
+						<!-- BEGIN: grafico_comportamiento -->
+						<!-- BEGIN: imagen_grafico -->
+						<table id="tbgrafico" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="1" cellspacing="1">
+							<tbody>
+								<caption>Reporte Comportamiento en el Tiempo del Equipo <b>{Tipo} - {Marca}</b></caption>
+								<tr><td align="center"><img src="{imagen}"/></td></tr>  						
+							</tbody>
+						</table>			
+					<!-- END: imagen_grafico -->
+						<table id="tblista" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="0" cellspacing="0" border="1">
+							<caption><b>Metales de Desgaste y Contaminantes</b></caption>
+							<thead>
+								<tr>
+									<th class="title header" scope="col" width="100">Fecha Muestra</th>
+									<th class="title header" scope="col">Al</th>
+									<th class="title header" scope="col">Cr</th>
+									<th class="title header" scope="col">Cu</th>
+									<th class="title header" scope="col">Fe</th>
+									<th class="title header" scope="col">Pb</th>
+									<th class="title header" scope="col">Sn</th>
+									<th class="title header" scope="col">Si</th>
+									<th class="title header" scope="col">B</th>
+									<th class="title header" scope="col">Na</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN: lista -->
+								<tr class="{estilo_fila}" align="center">
+									<td>{fecha}</td>
+									<td>{AL}</td>
+									<td>{CR}</td>
+									<td>{CU}</td>
+									<td>{FE}</td>
+									<td>{PB}</td>
+									<td>{SN}</td>
+									<td>{SI}</td>
+									<td>{B}</td>
+									<td>{NA}</td>
+								</tr>
+								<!-- END: lista -->
+							</tbody>	
+						</table>						
+						<!-- BEGIN: param_aditivos -->
+						<br>
+            <table id="tblista" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="0" cellspacing="0" border="1">					
+							<caption><b>Aditivaci&oacute;n</b></caption>
+							<thead>
+								<tr>
+									<th class="title header" scope="col" width="100">Fecha Muestra</th>
+									<th class="title header" scope="col">Mg</th>
+									<th class="title header" scope="col">Ca</th>
+									<th class="title header" scope="col">Zn</th>
+									<th class="title header" scope="col">P</th>
+									<th class="title header" scope="col">Mo</th>				
+								</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN: listab -->
+								<tr class="{estilo_fila}" align="center">
+									<td>{fecha}</td>
+									<td>{MG}</td>
+									<td>{CA}</td>
+									<td>{ZN}</td>
+									<td>{P}</td>
+									<td>{MO}</td>			
+								</tr><!-- END: listab -->
+							</tbody>	
+						</table>						
+						<!-- END: param_aditivos -->
+						<br>		
+						<table id="tblista" summary="Sumario de la tabla" style="width: 100%;" class="table_list" cellpadding="0" cellspacing="0" border="1">
+							<caption><b>Propiedades F&iacute;sico-Qu&iacute;micas</b> </caption>
+							<thead>
+								<tr>
+									<th class="title header" scope="col" width="100">Fecha Muestra</th>
+									<th class="title header" scope="col">Visc 40 &deg;C </th>
+									<th class="title header" scope="col">Visc 100 &deg;C </th>
+									<th class="title header" scope="col">Agua Karl Fisher</th>
+									<th class="title header" scope="col">Holin</th>
+									<th class="title header" scope="col">Num. Basico</th>
+									<th class="title header" scope="col">Acidez</th>				
+								</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN: listaa -->
+								<tr class="{estilo_fila}" align="center">
+									<td>{fecha}</td>
+									<td>{VISC40}</td>
+									<td>{VISC100}</td>
+									<td>{WATER}</td>
+									<td>{HO}</td>
+									<td>{NB}</td>
+									<td>{AC}</td>				
+								</tr>
+								<!-- END: listaa -->
+							</tbody>	
+						</table>	
+					
+					<!-- END: grafico_comportamiento -->
+					</div>
+				</div>
+				<div style="text-align:center"><img src="../images/bottom.jpg" alt="PDVSA" width="780" height="35"/></div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- END: main -->

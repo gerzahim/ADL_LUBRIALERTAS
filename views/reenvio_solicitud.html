@@ -1,0 +1,25 @@
+<!-- BEGIN: contenido -->
+<div class="normal">
+	<h1>Retransmitir Datos de Solicitudes</h1>
+	<br/><br/>
+	<!-- BEGIN: mensaje_default -->
+	<p style="text-align:center;">
+		Esta por solicitar el reenvio de datos de las solicitudes que faltan por confirmar..<br/>
+		De encontrar informaci&oacute;n para reenviar, este proceso podr&iacute;a tardar algunos minutos!!<br/>
+		<br/>
+		&iquest; Esta seguro de continuar con la operaci&oacute;n ?
+	</p>
+	<div class="botones">
+		<input  id="btnok" name="btnok" value="Retransmitir" type="button" class="boton" onclick="location='{pagina_principal}?op={opcion_sistema}&amp;accion=retrans'"/>&nbsp;&nbsp;
+		<input  id="btncancel" name="btncancel" value="Cancelar" type="button" class="boton" onclick="location='{pagina_principal}'"/>
+	</div>
+	<!-- END: mensaje_default -->
+	
+	<!-- BEGIN: mensaje_listo -->
+	<p style="text-align:center;">
+		Se ha realizado el reenvio de datos de las solicitudes satisfactoriamente!!<br/>
+		Debe esperar varios minutos si lo desea realizar nuevamente..
+	</p>
+	<!-- END: mensaje_listo -->
+</div>
+<!-- END: contenido -->

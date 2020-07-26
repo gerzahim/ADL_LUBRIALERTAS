@@ -1,0 +1,61 @@
+ul .menu  {
+	font-size: 200px;
+	text-align: left;
+	color: #a0a0a0;
+}
+
+ul.menu, ul.menu ul {
+	list-style-type: none;
+	margin: 1px;
+	padding: 2px;	
+}
+
+ul.menu .submenu {
+	border-bottom: thin dotted;
+	margin-bottom: 4px;	
+}
+
+ul.menu {
+	font-size: 11px;
+}
+
+.submenu ul li {
+	font-size: 10px;
+}
+
+ul.menu li{
+	margin-top: 1px;
+	cursor: pointer;
+}
+
+ul.menu a {
+	text-decoration: none;
+	display: block;
+}
+
+ul.menu li a {
+	padding: 4px;
+	text-decoration: none;
+	display: block;
+	color:#666666;
+}
+
+ul.menu li a:hover {
+	background:#eee none repeat scroll 0%;
+	background-image: url('../images/flechita.gif'); 
+	background-repeat: no-repeat;
+	background-position: center right;
+	color:#333333;
+}
+
+ul.menu li ul li {
+	margin: 0px 0px 0px 12px;
+}
+
+ul.menu li ul li a {
+	font-weight: normal;
+	height: 13px;
+}
+
+
+
